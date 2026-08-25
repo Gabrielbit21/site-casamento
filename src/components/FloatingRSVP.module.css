@@ -1,0 +1,270 @@
+.button {
+  position: fixed;
+
+  right: 1.6rem;
+  bottom: 1.6rem;
+
+  z-index: 90;
+
+  min-height: 58px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+
+  padding:
+    0.55rem
+    1.15rem
+    0.55rem
+    0.55rem;
+
+  border:
+    1px solid
+    rgba(
+      63,
+      70,
+      53,
+      0.2
+    );
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      251,
+      250,
+      247,
+      0.96
+    );
+
+  color:
+    var(--olive-dark);
+
+  box-shadow:
+    0 14px 38px
+    rgba(
+      35,
+      39,
+      31,
+      0.16
+    );
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.button:hover {
+  transform:
+    translateY(-3px);
+
+  background:
+    var(--olive-dark);
+
+  color:
+    var(--cream-light);
+
+  box-shadow:
+    0 18px 45px
+    rgba(
+      35,
+      39,
+      31,
+      0.22
+    );
+}
+
+.visible {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+
+  pointer-events: auto;
+}
+
+.hidden {
+  opacity: 0;
+
+  transform:
+    translateY(18px);
+
+  pointer-events: none;
+}
+
+/* ========================================
+   ÍCONE
+======================================== */
+
+.icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    var(--olive-dark);
+
+  color:
+    var(--cream-light);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.button:hover .icon {
+  background:
+    var(--cream-light);
+
+  color:
+    var(--olive-dark);
+}
+
+/* ========================================
+   TEXTO
+======================================== */
+
+.content {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  text-align: left;
+}
+
+.content strong {
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.53rem;
+
+  font-weight: 700;
+
+  letter-spacing:
+    0.19em;
+
+  line-height: 1.3;
+
+  text-transform:
+    uppercase;
+
+  white-space: nowrap;
+
+  color: inherit;
+}
+
+.content small {
+  margin-top: 0.2rem;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.52rem;
+
+  font-weight: 500;
+
+  letter-spacing:
+    0.13em;
+
+  color:
+    rgba(
+      63,
+      70,
+      53,
+      0.62
+    );
+
+  transition:
+    color 0.3s ease;
+}
+
+.button:hover
+.content small {
+  color:
+    rgba(
+      251,
+      250,
+      247,
+      0.66
+    );
+}
+
+/* ========================================
+   CONFIRMADO
+======================================== */
+
+.confirmed .icon {
+  background:
+    var(--olive);
+
+  color:
+    white;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (
+  max-width: 600px
+) {
+  .button {
+    right: 1rem;
+    bottom: 1rem;
+
+    width: 54px;
+    height: 54px;
+
+    min-height: 54px;
+
+    padding: 0;
+
+    justify-content: center;
+  }
+
+  .icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .content {
+    display: none;
+  }
+}

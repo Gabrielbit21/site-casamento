@@ -1,0 +1,981 @@
+.section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    8.5rem
+    clamp(
+      1.25rem,
+      5vw,
+      4rem
+    )
+    9rem;
+
+  overflow: hidden;
+
+  background:
+    var(--cream-light);
+}
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.heading {
+  width: min(100%, 760px);
+
+  margin:
+    0
+    auto
+    4.5rem;
+
+  text-align: center;
+}
+
+.label {
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.6rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.42em;
+
+  text-transform: uppercase;
+
+  color: var(--olive);
+}
+
+.title {
+  margin-top: 1.8rem;
+
+  font-family:
+    var(--font-cormorant),
+    serif;
+
+  font-size:
+    clamp(
+      3.4rem,
+      6vw,
+      5.8rem
+    );
+
+  font-weight: 400;
+
+  line-height: 0.92;
+
+  letter-spacing: -0.04em;
+
+  color: var(--olive-dark);
+}
+
+.description {
+  width: min(100%, 540px);
+
+  margin:
+    2.2rem
+    auto
+    0;
+
+  font-family:
+    var(--font-cormorant),
+    serif;
+
+  font-size: 1.28rem;
+
+  line-height: 1.7;
+
+  color: var(--text-soft);
+}
+
+.pixInfo {
+  margin-top: 1rem;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.62rem;
+
+  line-height: 1.7;
+
+  letter-spacing: 0.09em;
+
+  color:
+    rgba(
+      109,
+      112,
+      103,
+      0.72
+    );
+}
+
+/* ========================================
+   GRID
+======================================== */
+
+.grid {
+  width: min(100%, 940px);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 1.1rem;
+}
+
+/* ========================================
+   CARD
+======================================== */
+
+.card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(
+      109,
+      118,
+      83,
+      0.1
+    );
+
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 14px 34px
+    rgba(
+      48,
+      54,
+      44,
+      0.055
+    );
+
+  transition:
+    transform
+    0.45s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    ),
+    box-shadow
+    0.45s
+    ease;
+}
+
+.card:not(
+  .cardUnavailable
+):hover {
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    0 22px 50px
+    rgba(
+      48,
+      54,
+      44,
+      0.1
+    );
+}
+
+.cardUnavailable {
+  opacity: 0.72;
+}
+
+/* ========================================
+   IMAGEM
+======================================== */
+
+.imageArea {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+
+  background: #f1efe9;
+}
+
+.image {
+  object-fit: cover;
+
+  transition:
+    transform
+    0.7s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+.card:not(
+  .cardUnavailable
+):hover
+.image {
+  transform:
+    scale(1.035);
+}
+
+/* ========================================
+   PLACEHOLDER
+======================================== */
+
+.placeholder {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle
+      at
+      50%
+      35%,
+      #fbfaf7
+      0%,
+      #f3f1eb
+      60%,
+      #ece9e1
+      100%
+    );
+}
+
+.initials {
+  font-family:
+    var(--font-bodoni),
+    serif;
+
+  font-size:
+    clamp(
+      4rem,
+      6vw,
+      5.5rem
+    );
+
+  font-weight: 400;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.07em;
+
+  color:
+    rgba(
+      109,
+      118,
+      83,
+      0.18
+    );
+}
+
+.placeholderCategory {
+  margin-top: 1rem;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.5rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.34em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(
+      109,
+      118,
+      83,
+      0.48
+    );
+}
+
+/* ========================================
+   INDISPONÍVEL
+======================================== */
+
+.unavailableOverlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    rgba(
+      48,
+      54,
+      44,
+      0.2
+    );
+
+  backdrop-filter: blur(1.5px);
+
+  -webkit-backdrop-filter:
+    blur(1.5px);
+}
+
+.unavailableBadge {
+  padding:
+    0.58rem
+    0.85rem;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.91
+    );
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.48rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: var(--olive-dark);
+}
+
+/* ========================================
+   CONTEÚDO DO CARD
+======================================== */
+
+.cardContent {
+  padding:
+    1.25rem
+    1.3rem
+    1.35rem;
+}
+
+.category {
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.5rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.3em;
+
+  text-transform: uppercase;
+
+  color: var(--olive);
+}
+
+.giftName {
+  margin-top: 0.55rem;
+
+  font-family:
+    var(--font-cormorant),
+    serif;
+
+  font-size: 1.8rem;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -0.025em;
+
+  color: var(--olive-dark);
+}
+
+.cardFooter {
+  margin-top: 1.25rem;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+.priceBlock {
+  min-width: 0;
+}
+
+.priceLabel {
+  display: block;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.47rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(
+      109,
+      112,
+      103,
+      0.65
+    );
+}
+
+.price {
+  display: block;
+
+  margin-top: 0.2rem;
+
+  font-family:
+    var(--font-bodoni),
+    serif;
+
+  font-size: 1.22rem;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  color: var(--olive-dark);
+}
+
+/* ========================================
+   BOTÃO PRESENTEAR
+======================================== */
+
+.giftButton {
+  min-width: 106px;
+
+  min-height: 42px;
+
+  padding:
+    0.7rem
+    1rem;
+
+  flex-shrink: 0;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  background:
+    var(--olive-dark);
+
+  color: #ffffff;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.47rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    transform
+    0.3s
+    ease,
+    background
+    0.3s
+    ease;
+}
+
+.giftButton:not(
+  :disabled
+):hover {
+  transform:
+    translateY(-2px);
+
+  background: #343a2d;
+}
+
+.giftButtonUnavailable {
+  background: #eceae4;
+
+  color:
+    rgba(
+      109,
+      112,
+      103,
+      0.65
+    );
+
+  cursor: not-allowed;
+}
+
+/* ========================================
+   VER TODOS
+======================================== */
+
+.moreWrapper {
+  margin-top: 3.5rem;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+.moreButton {
+  min-height: 52px;
+
+  padding:
+    0.85rem
+    1.7rem;
+
+  border:
+    1px solid
+    rgba(
+      63,
+      70,
+      53,
+      0.25
+    );
+
+  border-radius: 999px;
+
+  background: transparent;
+
+  color: var(--olive-dark);
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.52rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.26em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background
+    0.3s
+    ease,
+    color
+    0.3s
+    ease;
+}
+
+.moreButton:hover {
+  background: var(--olive-dark);
+
+  color: #ffffff;
+}
+
+/* ========================================
+   MODAL
+======================================== */
+
+.modalBackdrop {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 120;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 1.25rem;
+
+  background:
+    rgba(
+      32,
+      35,
+      29,
+      0.8
+    );
+
+  backdrop-filter: blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+}
+
+.modal {
+  width: min(100%, 520px);
+
+  padding: 2rem;
+
+  border-radius: 30px;
+
+  background:
+    var(--cream-light);
+
+  box-shadow:
+    0 30px 100px
+    rgba(
+      0,
+      0,
+      0,
+      0.3
+    );
+}
+
+.modalHeader {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 1.5rem;
+}
+
+.modalLabel {
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.5rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.3em;
+
+  text-transform: uppercase;
+
+  color: var(--olive);
+}
+
+.modalTitle {
+  margin-top: 0.6rem;
+
+  font-family:
+    var(--font-cormorant),
+    serif;
+
+  font-size: 2.7rem;
+
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.035em;
+
+  color: var(--olive-dark);
+}
+
+.modalClose {
+  width: 44px;
+
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(
+      63,
+      70,
+      53,
+      0.15
+    );
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--olive-dark);
+
+  font-family:
+    var(--font-cormorant),
+    serif;
+
+  font-size: 1.8rem;
+
+  cursor: pointer;
+
+  transition:
+    background
+    0.3s
+    ease,
+    color
+    0.3s
+    ease;
+}
+
+.modalClose:hover {
+  background: var(--olive-dark);
+
+  color: #ffffff;
+}
+
+.modalDivider {
+  height: 1px;
+
+  margin: 1.7rem 0;
+
+  background:
+    rgba(
+      63,
+      70,
+      53,
+      0.1
+    );
+}
+
+.modalValue {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding: 1.2rem;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+}
+
+.modalValue span {
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.53rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color: var(--text-soft);
+}
+
+.modalValue strong {
+  font-family:
+    var(--font-bodoni),
+    serif;
+
+  font-size: 1.6rem;
+
+  font-weight: 500;
+
+  color: var(--olive-dark);
+}
+
+.modalText {
+  margin-top: 1.5rem;
+
+  font-family:
+    var(--font-cormorant),
+    serif;
+
+  font-size: 1.15rem;
+
+  line-height: 1.65;
+
+  color: var(--text-soft);
+}
+
+.modalButton {
+  width: 100%;
+
+  min-height: 54px;
+
+  margin-top: 1.7rem;
+
+  padding:
+    0.8rem
+    1.4rem;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  background: var(--olive-dark);
+
+  color: #ffffff;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.5rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.27em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    transform
+    0.3s
+    ease;
+}
+
+.modalButton:hover {
+  transform:
+    translateY(-2px);
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (
+  max-width: 1000px
+) {
+  .section {
+    padding-top: 7rem;
+  }
+
+  .grid {
+    width: min(100%, 650px);
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (
+  max-width: 650px
+) {
+  .section {
+    padding:
+      6.5rem
+      1.2rem
+      7rem;
+  }
+
+  .heading {
+    margin-bottom: 3.5rem;
+  }
+
+  .title {
+    font-size:
+      clamp(
+        3rem,
+        13vw,
+        4.2rem
+      );
+  }
+
+  .description {
+    font-size: 1.18rem;
+  }
+
+  .grid {
+    width: min(100%, 360px);
+
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+  .cardContent {
+    padding:
+      1.2rem
+      1.2rem
+      1.3rem;
+  }
+
+  .giftName {
+    font-size: 1.7rem;
+  }
+
+  .giftButton {
+    min-width: 100px;
+  }
+
+  .modal {
+    padding: 1.5rem;
+
+    border-radius: 24px;
+  }
+
+  .modalTitle {
+    font-size: 2.3rem;
+  }
+
+  .modalValue {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+}
