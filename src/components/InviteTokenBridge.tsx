@@ -1,10 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import {
-  usePathname,
-  useSearchParams,
-} from "next/navigation";
 
 const STORAGE_KEY =
   "wedding_invite_token";
@@ -30,40 +26,40 @@ function getTokenFromPath(
   }
 }
 
-export default function InviteTokenBridge() {
-  const pathname =
-    usePathname();
-
+function saveTokenFromCurrentUrl() {
   const searchParams =
-    useSearchParams();
-
-  useEffect(() => {
-    const queryToken =
-      searchParams.get(
-        "convite"
-      );
-
-    const pathToken =
-      getTokenFromPath(
-        pathname
-      );
-
-    const token =
-      queryToken ||
-      pathToken;
-
-    if (!token) {
-      return;
-    }
-
-    sessionStorage.setItem(
-      STORAGE_KEY,
-      token
+    new URLSearchParams(
+      window.location.search
     );
-  }, [
-    pathname,
-    searchParams,
-  ]);
+
+  const queryToken =
+    searchParams.get(
+      "convite"
+    );
+
+  const pathToken =
+    getTokenFromPath(
+      window.location.pathname
+    );
+
+  const token =
+    queryToken ||
+    pathToken;
+
+  if (!token) {
+    return;
+  }
+
+  sessionStorage.setItem(
+    STORAGE_KEY,
+    token
+  );
+}
+
+export default function InviteTokenBridge() {
+  useEffect(() => {
+    saveTokenFromCurrentUrl();
+  }, []);
 
   return null;
 }
