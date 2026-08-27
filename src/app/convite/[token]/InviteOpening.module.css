@@ -1,0 +1,1511 @@
+/* ========================================
+   PÁGINA
+======================================== */
+
+.page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100svh;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    2rem
+    1.5rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 38%,
+      #fbfaf6 0%,
+      #f7f4ec 48%,
+      #efeadd 100%
+    );
+
+  color:
+    var(--olive-dark);
+}
+
+.ambientGlow {
+  position: absolute;
+
+  width: 900px;
+  height: 900px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        201,
+        169,
+        107,
+        0.1
+      ),
+      transparent 67%
+    );
+
+  pointer-events: none;
+}
+
+/* ========================================
+   BOTÂNICA
+======================================== */
+
+.botanical {
+  position: absolute;
+
+  width: 300px;
+  height: 610px;
+
+  pointer-events: none;
+
+  opacity: 0.2;
+}
+
+.botanicalLeft {
+  left: -70px;
+  bottom: -155px;
+
+  transform:
+    rotate(-12deg);
+}
+
+.botanicalRight {
+  right: -72px;
+  top: -130px;
+
+  transform:
+    scaleX(-1)
+    rotate(-12deg);
+}
+
+.botanicalStem {
+  stroke:
+    rgba(
+      91,
+      101,
+      73,
+      0.42
+    );
+
+  stroke-width: 1;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+.botanicalLeaf {
+  stroke:
+    rgba(
+      91,
+      101,
+      73,
+      0.46
+    );
+
+  stroke-width: 0.95;
+
+  fill:
+    rgba(
+      109,
+      118,
+      83,
+      0.02
+    );
+}
+
+/* ========================================
+   DESTINATÁRIO
+======================================== */
+
+.intro {
+  position: absolute;
+
+  z-index: 15;
+
+  top:
+    clamp(
+      2rem,
+      6vh,
+      4rem
+    );
+
+  width:
+    min(
+      calc(
+        100% - 3rem
+      ),
+      800px
+    );
+
+  text-align: center;
+
+  pointer-events: none;
+}
+
+.intro > p {
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.5rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.42em;
+
+  color:
+    rgba(
+      63,
+      70,
+      53,
+      0.58
+    );
+}
+
+.intro > span {
+  display: block;
+
+  margin-top: 0.85rem;
+
+  font-family:
+    var(--font-pinyon),
+    cursive;
+
+  font-size: 1.8rem;
+
+  color: #b29056;
+}
+
+.intro h1 {
+  margin-top: 0.05rem;
+
+  font-family:
+    var(--font-bodoni),
+    serif;
+
+  font-size:
+    clamp(
+      2.7rem,
+      4.4vw,
+      4.25rem
+    );
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing:
+    -0.045em;
+
+  color: #3f4635;
+}
+
+/* ========================================
+   PALCO
+======================================== */
+
+.stage {
+  position: relative;
+
+  z-index: 5;
+
+  width:
+    min(
+      100%,
+      840px
+    );
+
+  height: 610px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  perspective: 1800px;
+
+  overflow: visible;
+}
+
+.envelopeScene {
+  position: relative;
+
+  width:
+    min(
+      76vw,
+      590px
+    );
+
+  aspect-ratio:
+    1.58 / 1;
+
+  perspective: 1800px;
+
+  overflow: visible;
+
+  filter:
+    drop-shadow(
+      0
+      32px
+      32px
+      rgba(
+        38,
+        43,
+        33,
+        0.16
+      )
+    );
+}
+
+/* ========================================
+   ENVELOPE
+======================================== */
+
+.envelope {
+  position: absolute;
+
+  z-index: 5;
+
+  inset: 0;
+
+  border-radius:
+    10px
+    10px
+    22px
+    22px;
+
+  transform-style:
+    preserve-3d;
+}
+
+.envelopeBack {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      145deg,
+      #4a543e 0%,
+      #414a37 55%,
+      #384130 100%
+    );
+
+  box-shadow:
+    inset
+    0
+    1px
+    0
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+}
+
+/* ========================================
+   CARTA
+======================================== */
+
+.letterAnchor {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 50%;
+  top: 50%;
+
+  width:
+    min(
+      86%,
+      510px
+    );
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  pointer-events: none;
+}
+
+.letterAnchorOpen {
+  z-index: 20;
+
+  pointer-events: auto;
+}
+
+.letter {
+  position: relative;
+
+  width: 100%;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+.letterInner {
+  position: relative;
+
+  width: 100%;
+  min-height: 540px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  padding:
+    3.1rem
+    3.3rem
+    2.6rem;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(
+      201,
+      169,
+      107,
+      0.24
+    );
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fcfaf4 0%,
+      #f7f1e4 55%,
+      #f1e8d7 100%
+    );
+
+  box-shadow:
+    0
+    28px
+    65px
+    rgba(
+      38,
+      43,
+      33,
+      0.2
+    );
+
+  text-align: center;
+}
+
+/* ========================================
+   O NOSSO CASAMENTO
+======================================== */
+
+.weddingEyebrow {
+  position: relative;
+
+  z-index: 2;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.58rem;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 0.52em;
+
+  text-transform: uppercase;
+
+  color: #9b7a44;
+}
+
+/* ========================================
+   NOMES
+======================================== */
+
+.coupleNames {
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: 1.25rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.75rem;
+
+  font-family:
+    var(--font-bodoni),
+    serif;
+
+  font-size:
+    clamp(
+      2.8rem,
+      5vw,
+      4.25rem
+    );
+
+  font-weight: 400;
+
+  line-height: 0.9;
+
+  letter-spacing:
+    -0.05em;
+
+  color: #3d4535;
+}
+
+.coupleNames i {
+  margin:
+    0
+    0.15rem;
+
+  font-family:
+    var(--font-pinyon),
+    cursive;
+
+  font-size: 2.7rem;
+
+  font-weight: 400;
+
+  color: #b18c50;
+}
+
+/* ========================================
+   DIVISOR
+======================================== */
+
+.weddingDivider {
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(
+      100%,
+      250px
+    );
+
+  margin-top: 1.45rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.7rem;
+}
+
+.weddingDivider span {
+  height: 1px;
+
+  flex: 1;
+
+  background:
+    rgba(
+      163,
+      131,
+      77,
+      0.34
+    );
+}
+
+.weddingDivider i {
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #b18c50;
+}
+
+/* ========================================
+   DATA
+======================================== */
+
+.dateGroup {
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: 1.55rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.letterDate {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.8rem;
+}
+
+.letterDate > strong {
+  font-family:
+    var(--font-bodoni),
+    serif;
+
+  font-size: 3.85rem;
+
+  font-weight: 500;
+
+  line-height: 0.8;
+
+  letter-spacing:
+    -0.07em;
+
+  color: #3d4535;
+}
+
+.letterDate > div {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.letterDate span {
+  font-family:
+    var(--font-pinyon),
+    cursive;
+
+  font-size: 2.3rem;
+
+  line-height: 0.9;
+
+  color: #a98448;
+}
+
+/* ========================================
+   2027 — MAIS PRESENTE
+======================================== */
+
+.letterDate small {
+  margin-top: 0.62rem;
+
+  padding-left: 0.08rem;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.62rem;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 0.32em;
+
+  color:
+    rgba(
+      63,
+      70,
+      53,
+      0.72
+    );
+}
+
+.letterTime {
+  margin-top: 0.95rem;
+
+  font-family:
+    var(--font-cormorant),
+    serif;
+
+  font-size: 1.4rem;
+
+  font-weight: 500;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  color: #75664b;
+}
+
+/* ========================================
+   MENSAGEM
+======================================== */
+
+.letterMessage {
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(
+      100%,
+      365px
+    );
+
+  margin-top: 1.75rem;
+
+  font-family:
+    var(--font-cormorant),
+    serif;
+
+  font-size: 1.13rem;
+
+  font-weight: 500;
+
+  line-height: 1.52;
+
+  color: #55594f;
+}
+
+/* ========================================
+   RESERVA
+======================================== */
+
+.guestReservation {
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: 1.5rem;
+
+  min-width: 225px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.38rem;
+
+  padding:
+    0.78rem
+    1.35rem;
+
+  border-top:
+    1px solid
+    rgba(
+      169,
+      137,
+      78,
+      0.28
+    );
+
+  border-bottom:
+    1px solid
+    rgba(
+      169,
+      137,
+      78,
+      0.28
+    );
+}
+
+/* ========================================
+   TEXTO DA RESERVA — MAIOR
+======================================== */
+
+.guestReservation span {
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.54rem;
+
+  font-weight: 650;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.19em;
+
+  color:
+    rgba(
+      63,
+      70,
+      53,
+      0.68
+    );
+}
+
+.guestReservation strong {
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.68rem;
+
+  font-weight: 750;
+
+  letter-spacing: 0.18em;
+
+  color: #8c6d3d;
+}
+
+/* ========================================
+   CTA
+======================================== */
+
+.enterButton {
+  position: relative;
+
+  z-index: 4;
+
+  margin-top: 1.5rem;
+
+  min-width: 205px;
+  min-height: 50px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1rem;
+
+  padding:
+    0.78rem
+    1.65rem;
+
+  border:
+    1px solid
+    #3f4635;
+
+  border-radius: 999px;
+
+  background:
+    #3f4635;
+
+  color: #f8f3e8;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.5rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.27em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  box-shadow:
+    0
+    11px
+    26px
+    rgba(
+      52,
+      60,
+      44,
+      0.13
+    );
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.enterButton:hover {
+  transform:
+    translateY(-2px);
+
+  background: #31382b;
+
+  color: #ffffff;
+
+  box-shadow:
+    0
+    16px
+    32px
+    rgba(
+      52,
+      60,
+      44,
+      0.19
+    );
+}
+
+.enterButton > span {
+  font-size: 1rem;
+
+  line-height: 0;
+}
+
+/* ========================================
+   FRENTE DO ENVELOPE
+======================================== */
+
+.envelopeFront {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 5;
+
+  overflow: hidden;
+
+  border-radius: inherit;
+
+  pointer-events: none;
+}
+
+.frontLeft {
+  position: absolute;
+
+  inset: 0;
+
+  clip-path:
+    polygon(
+      0 0,
+      55% 58%,
+      0 100%
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      #47513b,
+      #3c4533
+    );
+}
+
+.frontRight {
+  position: absolute;
+
+  inset: 0;
+
+  clip-path:
+    polygon(
+      100% 0,
+      45% 58%,
+      100% 100%
+    );
+
+  background:
+    linear-gradient(
+      225deg,
+      #46503a,
+      #394230
+    );
+}
+
+.frontBottom {
+  position: absolute;
+
+  inset: 0;
+
+  clip-path:
+    polygon(
+      0 100%,
+      50% 48%,
+      100% 100%
+    );
+
+  background:
+    linear-gradient(
+      180deg,
+      #424b37,
+      #363f2e
+    );
+}
+
+/* ========================================
+   ABA
+======================================== */
+
+.flap {
+  position: absolute;
+
+  z-index: 7;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 61%;
+
+  transform-origin:
+    center top;
+
+  transform-style:
+    preserve-3d;
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    );
+
+  background:
+    linear-gradient(
+      160deg,
+      #515b44,
+      #404a36
+    );
+
+  backface-visibility:
+    hidden;
+}
+
+/* ========================================
+   SELO
+======================================== */
+
+.sealAnchor {
+  position: absolute;
+
+  z-index: 10;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  width: 94px;
+  height: 94px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.sealButton {
+  position: relative;
+
+  width: 94px;
+  height: 94px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 0;
+
+  border-radius:
+    47%
+    52%
+    48%
+    53%;
+
+  background:
+    radial-gradient(
+      circle at 32% 25%,
+      #e2c68f 0%,
+      #c4a263 35%,
+      #aa8447 73%,
+      #98713b 100%
+    );
+
+  color: #fff6df;
+
+  box-shadow:
+    inset
+    2px
+    2px
+    4px
+    rgba(
+      255,
+      255,
+      255,
+      0.25
+    ),
+    inset
+    -4px
+    -5px
+    8px
+    rgba(
+      99,
+      69,
+      30,
+      0.28
+    ),
+    0
+    9px
+    20px
+    rgba(
+      24,
+      27,
+      21,
+      0.25
+    );
+
+  cursor: pointer;
+}
+
+
+
+/* ========================================
+   MONOGRAMA OFICIAL
+======================================== */
+
+.monogram {
+  position: relative;
+
+  z-index: 3;
+
+  display: block;
+
+  width: 77px !important;
+  height: 77px !important;
+
+  object-fit: contain;
+
+  pointer-events: none;
+}
+
+/* ========================================
+   INSTRUÇÃO
+======================================== */
+
+.instructions {
+  position: relative;
+
+  z-index: 14;
+
+  margin-top: -2rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1rem;
+}
+
+.instructions span {
+  width: 44px;
+  height: 1px;
+
+  background:
+    rgba(
+      63,
+      70,
+      53,
+      0.24
+    );
+}
+
+.instructions p {
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.56rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.23em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(
+      63,
+      70,
+      53,
+      0.68
+    );
+}
+
+/* ========================================
+   CONVITE INVÁLIDO
+======================================== */
+
+.invalidPage {
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 1.5rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      #fbfaf6,
+      #f0ebdf
+    );
+}
+
+.invalidCard {
+  width:
+    min(
+      100%,
+      560px
+    );
+
+  padding:
+    4rem
+    2rem;
+
+  text-align: center;
+}
+
+.invalidMonogram {
+  color: #ae8d53;
+}
+
+.invalidLabel {
+  margin-top: 2rem;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+
+  font-size: 0.5rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.4em;
+
+  color: #9d7f4c;
+}
+
+.invalidCard h1 {
+  margin-top: 1rem;
+
+  font-family:
+    var(--font-bodoni),
+    serif;
+
+  font-size:
+    clamp(
+      3rem,
+      8vw,
+      4.5rem
+    );
+
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  color:
+    var(--olive-dark);
+}
+
+.invalidText {
+  width:
+    min(
+      100%,
+      360px
+    );
+
+  margin:
+    1.8rem
+    auto
+    0;
+
+  font-family:
+    var(--font-cormorant),
+    serif;
+
+  font-size: 1.2rem;
+
+  line-height: 1.6;
+
+  color:
+    var(--text-soft);
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (
+  max-width: 900px
+) {
+  .stage {
+    height: 600px;
+  }
+
+  .envelopeScene {
+    width:
+      min(
+        82vw,
+        520px
+      );
+  }
+
+  .botanical {
+    width: 230px;
+  }
+
+  .letterAnchor {
+    width: 90%;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (
+  max-width: 600px
+) {
+  .page {
+    min-height: 100svh;
+
+    padding:
+      1rem
+      1rem
+      1.4rem;
+  }
+
+  .intro {
+    top: 1.6rem;
+  }
+
+  .intro > p {
+    font-size: 0.4rem;
+  }
+
+  .intro > span {
+    margin-top: 0.55rem;
+
+    font-size: 1.35rem;
+  }
+
+  .intro h1 {
+    font-size:
+      clamp(
+        1.9rem,
+        8vw,
+        2.6rem
+      );
+  }
+
+  .stage {
+    width: 100%;
+
+    height: 570px;
+  }
+
+  .envelopeScene {
+    width:
+      min(
+        92vw,
+        430px
+      );
+  }
+
+  .sealAnchor,
+  .sealButton {
+    width: 78px;
+    height: 78px;
+  }
+
+  .monogram {
+    width: 55px !important;
+    height: 55px !important;
+  }
+
+  .letterAnchor {
+    width: 94%;
+  }
+
+  .letterInner {
+    min-height: 510px;
+
+    padding:
+      2.25rem
+      1.4rem
+      1.8rem;
+  }
+
+  .weddingEyebrow {
+    font-size: 0.46rem;
+
+    letter-spacing: 0.4em;
+  }
+
+  .coupleNames {
+    margin-top: 0.9rem;
+
+    gap: 0.45rem;
+
+    font-size:
+      clamp(
+        2.25rem,
+        10vw,
+        3rem
+      );
+  }
+
+  .coupleNames i {
+    font-size: 2rem;
+  }
+
+  .weddingDivider {
+    margin-top: 1.1rem;
+  }
+
+  .dateGroup {
+    margin-top: 1.2rem;
+  }
+
+  .letterDate > strong {
+    font-size: 3rem;
+  }
+
+  .letterDate span {
+    font-size: 1.85rem;
+  }
+
+  .letterDate small {
+    margin-top: 0.52rem;
+
+    font-size: 0.54rem;
+
+    letter-spacing: 0.28em;
+  }
+
+  .letterTime {
+    font-size: 1.2rem;
+  }
+
+  .letterMessage {
+    margin-top: 1.35rem;
+
+    font-size: 1rem;
+  }
+
+  .guestReservation {
+    min-width: 200px;
+
+    margin-top: 1.2rem;
+  }
+
+  .guestReservation span {
+    font-size: 0.48rem;
+  }
+
+  .guestReservation strong {
+    font-size: 0.61rem;
+  }
+
+  .enterButton {
+    min-width: 190px;
+
+    min-height: 46px;
+
+    margin-top: 1.2rem;
+
+    font-size: 0.43rem;
+  }
+
+  .instructions {
+    margin-top: -1.3rem;
+
+    gap: 0.7rem;
+  }
+
+  .instructions span {
+    width: 24px;
+  }
+
+  .instructions p {
+    font-size: 0.45rem;
+
+    letter-spacing:
+      0.17em;
+  }
+
+  .botanical {
+    width: 180px;
+    height: 400px;
+
+    opacity: 0.15;
+  }
+
+  .botanicalLeft {
+    left: -85px;
+    bottom: -100px;
+  }
+
+  .botanicalRight {
+    right: -90px;
+    top: -80px;
+  }
+}
+
+/* ========================================
+   MOVIMENTO REDUZIDO
+======================================== */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .enterButton {
+    transition: none;
+  }
+}

@@ -7,6 +7,16 @@ import {
 
 import styles from "./FloatingRSVP.module.css";
 
+const RSVP_OPEN_EVENT =
+  "wedding:rsvp:open";
+
+const RSVP_STATE_EVENT =
+  "wedding:rsvp:state";
+
+type RSVPStateDetail = {
+  responded: boolean;
+};
+
 type FloatingRSVPProps = {
   confirmed?: boolean;
 };
@@ -16,6 +26,13 @@ export default function FloatingRSVP({
 }: FloatingRSVPProps) {
   const [visible, setVisible] =
     useState(false);
+
+  const [responded, setResponded] =
+    useState(confirmed);
+
+  useEffect(() => {
+    setResponded(confirmed);
+  }, [confirmed]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,39 +63,65 @@ export default function FloatingRSVP({
     };
   }, []);
 
-  const goToRSVP = () => {
-    const rsvpButton =
-      document.getElementById(
-        "confirmar-presenca"
-      );
+  useEffect(() => {
+    const handleRSVPState = (
+      event: Event
+    ) => {
+      const customEvent =
+        event as CustomEvent<RSVPStateDetail>;
 
-    rsvpButton?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
+      if (
+        typeof customEvent.detail
+          ?.responded === "boolean"
+      ) {
+        setResponded(
+          customEvent.detail.responded
+        );
+      }
+    };
+
+    window.addEventListener(
+      RSVP_STATE_EVENT,
+      handleRSVPState
+    );
+
+    return () => {
+      window.removeEventListener(
+        RSVP_STATE_EVENT,
+        handleRSVPState
+      );
+    };
+  }, []);
+
+  const openRSVP = () => {
+    window.dispatchEvent(
+      new CustomEvent(
+        RSVP_OPEN_EVENT
+      )
+    );
   };
 
   return (
     <button
       type="button"
-      onClick={goToRSVP}
+      onClick={openRSVP}
       aria-label={
-        confirmed
-          ? "Presença confirmada. Clique para revisar."
-          : "Ir para confirmação de presença"
+        responded
+          ? "Confirmação enviada. Clique para revisar."
+          : "Confirmar presença"
       }
       className={`${styles.button} ${
         visible
           ? styles.visible
           : styles.hidden
       } ${
-        confirmed
+        responded
           ? styles.confirmed
           : ""
       }`}
     >
       <span className={styles.icon}>
-        {confirmed ? (
+        {responded ? (
           <svg
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -110,14 +153,14 @@ export default function FloatingRSVP({
 
       <span className={styles.content}>
         <strong>
-          {confirmed
-            ? "Presença confirmada"
+          {responded
+            ? "Confirmação enviada"
             : "Confirmar presença"}
         </strong>
 
         <small>
-          {confirmed
-            ? "Revisar confirmação"
+          {responded
+            ? "Revisar respostas"
             : "28 · 08 · 2027"}
         </small>
       </span>

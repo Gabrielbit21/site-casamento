@@ -1,14 +1,41 @@
-import Image from "next/image";
-
 import WeddingCountdown from "@/components/WeddingCountdown";
 
-const mapQuery = encodeURIComponent(
-  "Primeira Igreja Metodista Wesleyana Cataguases MG"
-);
+/* ========================================
+   CERIMÔNIA
+======================================== */
 
-const mapsEmbedUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+const ceremonyMapQuery =
+  encodeURIComponent(
+    "Primeira Igreja Metodista Wesleyana Cataguases MG"
+  );
 
-const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}&travelmode=driving`;
+const ceremonyMapsEmbedUrl =
+  `https://www.google.com/maps?q=${ceremonyMapQuery}&output=embed`;
+
+const ceremonyDirectionsUrl =
+  `https://www.google.com/maps/dir/?api=1&destination=${ceremonyMapQuery}&travelmode=driving`;
+
+/* ========================================
+   RECEPÇÃO
+======================================== */
+
+const receptionAddress =
+  "R. Amílton Schelb, 10 - Pampulha, Cataguases - MG, 36774-778";
+
+const receptionMapQuery =
+  encodeURIComponent(
+    `Espaço de Festas Nete Titoneli, ${receptionAddress}`
+  );
+
+const receptionMapsEmbedUrl =
+  `https://www.google.com/maps?q=${receptionMapQuery}&output=embed`;
+
+const receptionDirectionsUrl =
+  `https://www.google.com/maps/dir/?api=1&destination=${receptionMapQuery}&travelmode=driving`;
+
+/* ========================================
+   GOOGLE AGENDA
+======================================== */
 
 const calendarTitle =
   encodeURIComponent(
@@ -17,7 +44,14 @@ const calendarTitle =
 
 const calendarDetails =
   encodeURIComponent(
-    "Cerimônia de casamento de Gabriel e Luana. Nos vemos às 15:30 na Primeira Igreja Metodista Wesleyana, em Cataguases - MG."
+    [
+      "Casamento de Gabriel e Luana.",
+      "",
+      "Cerimônia às 15:30 na Primeira Igreja Metodista Wesleyana, em Cataguases - MG.",
+      "",
+      "Após a cerimônia, a recepção acontecerá no Espaço de Festas Nete Titoneli.",
+      receptionAddress,
+    ].join("\n")
   );
 
 const calendarLocation =
@@ -62,7 +96,7 @@ export default function WeddingDetails() {
           <p className="wedding-intro-copy">
             Primeira Igreja Metodista Wesleyana
             <br />
-            Cataguases · Minas Gerais
+            Cerimônia · Cataguases · Minas Gerais
           </p>
 
           <div
@@ -95,24 +129,25 @@ export default function WeddingDetails() {
         </div>
 
         <div className="wedding-main-grid">
+
+          {/* =================================
+              CERIMÔNIA
+          ================================== */}
+
           <article className="wedding-card wedding-map-card">
             <div className="wedding-card-head">
               <p className="wedding-card-label">
-                LOCALIZAÇÃO
+                CERIMÔNIA
               </p>
 
               <h3>
                 Primeira Igreja Metodista Wesleyana
               </h3>
-
-              <p className="wedding-card-text">
-                Cataguases · Minas Gerais
-              </p>
             </div>
 
             <div className="wedding-map-frame">
               <iframe
-                src={mapsEmbedUrl}
+                src={ceremonyMapsEmbedUrl}
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
@@ -121,7 +156,7 @@ export default function WeddingDetails() {
             </div>
 
             <a
-              href={mapsDirectionsUrl}
+              href={ceremonyDirectionsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="wedding-route-button"
@@ -134,55 +169,54 @@ export default function WeddingDetails() {
             </a>
           </article>
 
-          <article className="wedding-card wedding-photos-card">
+          {/* =================================
+              RECEPÇÃO
+          ================================== */}
+
+          <article className="wedding-card wedding-map-card">
             <div className="wedding-card-head">
               <p className="wedding-card-label">
-                O LOCAL
+                RECEPÇÃO
               </p>
 
               <h3>
-                Um espaço especial
+                Espaço de Festas
                 <br />
-                para o nosso sim.
+                Nete Titoneli
               </h3>
 
               <p className="wedding-card-text">
-                Por enquanto, estas imagens
-                servem como preenchimento
-                visual. Depois substituímos
-                pelas fotos oficiais da
-                igreja.
+                <strong>
+                  Importante:
+                </strong>{" "}
+                o espaço da recepção será
+                liberado somente após a
+                realização da cerimônia.
               </p>
             </div>
 
-            <div className="wedding-photo-grid">
-              <div className="wedding-photo wedding-photo-large">
-                <Image
-                  src="/images/gallery/foto3.jpeg"
-                  alt="Imagem de referência para o local do casamento"
-                  fill
-                  className="wedding-photo-image"
-                />
-              </div>
-
-              <div className="wedding-photo">
-                <Image
-                  src="/images/gallery/foto4.jpeg"
-                  alt="Imagem complementar de referência"
-                  fill
-                  className="wedding-photo-image"
-                />
-              </div>
-
-              <div className="wedding-photo">
-                <Image
-                  src="/images/gallery/foto5.jpeg"
-                  alt="Imagem complementar de referência para a cerimônia"
-                  fill
-                  className="wedding-photo-image"
-                />
-              </div>
+            <div className="wedding-map-frame">
+              <iframe
+                src={receptionMapsEmbedUrl}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mapa do Espaço de Festas Nete Titoneli em Cataguases"
+              />
             </div>
+
+            <a
+              href={receptionDirectionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="wedding-route-button"
+            >
+              <span className="route-icon">
+                ↗
+              </span>
+
+              Criar rota
+            </a>
           </article>
         </div>
       </div>
