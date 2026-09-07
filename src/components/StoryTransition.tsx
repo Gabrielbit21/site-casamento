@@ -125,6 +125,9 @@ export default function StoryTransition() {
       className={
         styles.transition
       }
+      style={{
+        pointerEvents: "none",
+      }}
     >
       <div
         className={

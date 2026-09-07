@@ -126,6 +126,9 @@ export default function WhiteTransition() {
       className={
         styles.transition
       }
+      style={{
+        pointerEvents: "none",
+      }}
     >
       <div
         className={

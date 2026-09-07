@@ -97,6 +97,7 @@ export default function Hero() {
       className="hero-scroll"
       style={{
         height: "155vh",
+        pointerEvents: "none",
       }}
     >
       <div className="hero-sticky">
