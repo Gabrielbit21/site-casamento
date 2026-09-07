@@ -1,4 +1,7 @@
-import type { Metadata } from "next";
+import type {
+  Metadata,
+  Viewport,
+} from "next";
 
 import {
   Bodoni_Moda,
@@ -7,6 +10,7 @@ import {
   Pinyon_Script,
 } from "next/font/google";
 
+import InstallAppPrompt from "@/components/InstallAppPrompt";
 import InviteTokenBridge from "@/components/InviteTokenBridge";
 
 import "./globals.css";
@@ -67,6 +71,18 @@ export const metadata: Metadata = {
     "Gabriel & Luana | 28.08.2027",
   description:
     "Site oficial do casamento de Gabriel e Luana.",
+  applicationName:
+    "Gabriel & Luana",
+  appleWebApp: {
+    title:
+      "Gabriel & Luana",
+    statusBarStyle:
+      "default",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#3f4635",
 };
 
 export default function RootLayout({
@@ -77,6 +93,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
+      data-scroll-behavior="smooth"
       className={`
         ${manrope.variable}
         ${cormorant.variable}
@@ -86,6 +103,7 @@ export default function RootLayout({
     >
       <body>
         <InviteTokenBridge />
+        <InstallAppPrompt />
 
         {children}
       </body>

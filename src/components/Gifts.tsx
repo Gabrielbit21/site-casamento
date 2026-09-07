@@ -177,10 +177,9 @@ export default function Gifts() {
               styles.description
             }
           >
-            Para quem quiser fazer parte
-            desse novo começo, escolhemos
-            alguns presentes que estarão
-            presentes na nossa vida a dois.
+            Para quem quiser fazer parte desse novo começo, 
+            preparamos uma seleção especial de presentes 
+            que farão parte da nossa vida a dois..
           </p>
 
           <p className={styles.pixInfo}>

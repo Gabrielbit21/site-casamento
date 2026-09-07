@@ -1,0 +1,295 @@
+.prompt {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  z-index: 9800;
+
+  width: min(
+    calc(100vw - 2rem),
+    440px
+  );
+
+  transform: translateX(-50%);
+
+  padding: 1.25rem;
+
+  border:
+    1px solid
+    rgba(63, 70, 53, 0.14);
+  border-radius: 24px;
+
+  background:
+    rgba(251, 250, 247, 0.98);
+
+  color: var(--olive-dark);
+
+  box-shadow:
+    0 26px 75px
+    rgba(31, 36, 28, 0.2);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  animation:
+    promptIn
+    0.42s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: transparent;
+  color:
+    rgba(63, 70, 53, 0.58);
+
+  font-family:
+    var(--font-cormorant),
+    serif;
+  font-size: 1.55rem;
+
+  cursor: pointer;
+}
+
+.iconShell {
+  width: 68px;
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 1.15rem;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background: var(--olive-dark);
+}
+
+.monogram {
+  width: 52px;
+  height: 52px;
+
+  object-fit: contain;
+}
+
+.copy {
+  padding-right: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+  font-size: 0.49rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+
+  color: var(--olive);
+}
+
+.copy h2 {
+  margin: 0;
+
+  font-family:
+    var(--font-cormorant),
+    serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+}
+
+.copy > p:last-child {
+  margin: 0.85rem 0 0;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+  font-size: 0.68rem;
+  line-height: 1.7;
+
+  color: var(--text-soft);
+}
+
+.instructions {
+  margin-top: 1rem;
+  padding: 1rem;
+
+  border-radius: 16px;
+
+  background:
+    rgba(109, 118, 83, 0.08);
+}
+
+.instructions strong {
+  display: block;
+
+  margin-bottom: 0.55rem;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.instructions ol {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.instructions li,
+.instructions p,
+.instructions small {
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+  font-size: 0.62rem;
+  line-height: 1.65;
+
+  color: var(--text-soft);
+}
+
+.instructions li + li {
+  margin-top: 0.25rem;
+}
+
+.instructions p {
+  margin: 0;
+}
+
+.instructions small {
+  display: block;
+
+  margin-top: 0.65rem;
+}
+
+.actions {
+  margin-top: 1.1rem;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.65rem;
+}
+
+.installButton,
+.laterButton {
+  min-height: 48px;
+
+  border-radius: 14px;
+
+  font-family:
+    var(--font-manrope),
+    sans-serif;
+  font-size: 0.51rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.installButton {
+  padding: 0 1rem;
+
+  border: 1px solid var(--olive-dark);
+
+  background: var(--olive-dark);
+  color: var(--cream-light);
+}
+
+.installButton:disabled {
+  opacity: 0.62;
+  cursor: wait;
+}
+
+.laterButton {
+  padding: 0 0.95rem;
+
+  border:
+    1px solid
+    rgba(63, 70, 53, 0.16);
+
+  background: transparent;
+  color: var(--olive-dark);
+}
+
+@keyframes promptIn {
+  from {
+    opacity: 0;
+    transform:
+      translate(-50%, 18px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translate(-50%, 0)
+      scale(1);
+  }
+}
+
+@media (max-width: 560px) {
+  .prompt {
+    bottom: 0.75rem;
+
+    width:
+      calc(100vw - 1.5rem);
+
+    padding: 1.1rem;
+
+    border-radius: 22px;
+  }
+
+  .iconShell {
+    width: 62px;
+    height: 62px;
+
+    border-radius: 17px;
+  }
+
+  .monogram {
+    width: 48px;
+    height: 48px;
+  }
+
+  .copy h2 {
+    font-size: 1.85rem;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .laterButton {
+    min-height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prompt {
+    animation: none;
+  }
+}

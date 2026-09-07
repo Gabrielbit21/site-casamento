@@ -1,8 +1,10 @@
 import Hero from "@/components/Hero";
 import Gallery from "@/components/Gallery";
+import StoryTransition from "@/components/StoryTransition";
 import WeddingDetails from "@/components/WeddingDetails";
+import MomentsFeed from "@/components/MomentsFeed";
 import Gifts from "@/components/Gifts";
-import FloatingRSVP from "@/components/FloatingRSVP";
+import FloatingMenu from "@/components/FloatingMenu";
 import RSVPModal from "@/components/RSVPModal";
 
 export default function Home() {
@@ -10,13 +12,23 @@ export default function Home() {
     <main>
       <Hero />
 
-      <Gallery />
+      <div id="fotos">
+        <Gallery />
+      </div>
 
-      <WeddingDetails />
+      <StoryTransition />
+
+      <div id="casamento">
+        <WeddingDetails />
+      </div>
+
+      <div id="momentos">
+        <MomentsFeed />
+      </div>
 
       <Gifts />
 
-      <FloatingRSVP />
+      <FloatingMenu />
 
       <RSVPModal />
     </main>
