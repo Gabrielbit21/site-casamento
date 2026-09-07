@@ -1,25 +1,18 @@
 .wrapper {
   --earth-accent:
-    #a87e61;
+    #694833;
 
   --earth-accent-dark:
-    #8f684d;
+    #563927;
 
   position: fixed;
-
   right: 1.6rem;
   bottom: 1.6rem;
-
   z-index: 96;
 
   display: flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    flex-end;
-
+  flex-direction: column;
+  align-items: flex-end;
   gap: 0.85rem;
 
   transition:
@@ -29,77 +22,44 @@
 
 .visible {
   opacity: 1;
-
-  transform:
-    translateY(0);
-
-  pointer-events:
-    auto;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .hidden {
   opacity: 0;
-
-  transform:
-    translateY(18px);
-
-  pointer-events:
-    none;
+  transform: translateY(18px);
+  pointer-events: none;
 }
-
-/* ========================================
-   PAINEL
-======================================== */
 
 .panel {
   width:
     min(
       310px,
-      calc(
-        100vw - 2rem
-      )
+      calc(100vw - 2rem)
     );
 
   padding: 0.75rem;
 
   border:
     1px solid
-    rgba(
-      63,
-      70,
-      53,
-      0.16
-    );
+    rgba(63, 70, 53, 0.16);
 
   border-radius: 24px;
 
   background:
-    rgba(
-      251,
-      250,
-      247,
-      0.97
-    );
+    rgba(251, 250, 247, 0.97);
 
-  color:
-    var(--olive-dark);
+  color: var(--olive-dark);
 
   box-shadow:
     0
     24px
     70px
-    rgba(
-      35,
-      39,
-      31,
-      0.18
-    );
+    rgba(35, 39, 31, 0.18);
 
-  backdrop-filter:
-    blur(18px);
-
-  -webkit-backdrop-filter:
-    blur(18px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
   opacity: 0;
 
@@ -110,13 +70,10 @@
   transform-origin:
     right bottom;
 
-  pointer-events:
-    none;
+  pointer-events: none;
 
   transition:
-    opacity
-      0.24s
-      ease,
+    opacity 0.24s ease,
     transform
       0.3s
       cubic-bezier(
@@ -134,22 +91,13 @@
     translateY(0)
     scale(1);
 
-  pointer-events:
-    auto;
+  pointer-events: auto;
 }
-
-/* ========================================
-   CABEÇALHO
-======================================== */
 
 .panelHeader {
   display: flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    space-between;
+  align-items: center;
+  justify-content: space-between;
 
   gap: 1rem;
 
@@ -165,82 +113,46 @@
     var(--font-manrope),
     sans-serif;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
 
 .panelHeader span {
-  font-size:
-    0.57rem;
-
+  font-size: 0.57rem;
   font-weight: 700;
-
-  letter-spacing:
-    0.2em;
+  letter-spacing: 0.2em;
 }
 
 .panelHeader small {
-  font-size:
-    0.49rem;
-
+  font-size: 0.49rem;
   font-weight: 600;
-
-  letter-spacing:
-    0.17em;
+  letter-spacing: 0.17em;
 
   color:
-    rgba(
-      63,
-      70,
-      53,
-      0.52
-    );
+    rgba(63, 70, 53, 0.52);
 }
-
-/* ========================================
-   NAVEGAÇÃO
-======================================== */
 
 .navigation {
   display: flex;
+  flex-direction: column;
 
-  flex-direction:
-    column;
-
-  padding:
-    0.35rem;
+  padding: 0.35rem;
 
   border-top:
     1px solid
-    rgba(
-      63,
-      70,
-      53,
-      0.1
-    );
+    rgba(63, 70, 53, 0.1);
 
   border-bottom:
     1px solid
-    rgba(
-      63,
-      70,
-      53,
-      0.1
-    );
+    rgba(63, 70, 53, 0.1);
 }
 
 .navigationItem {
   width: 100%;
-
   min-height: 44px;
 
   display: flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    space-between;
+  align-items: center;
+  justify-content: space-between;
 
   gap: 1rem;
 
@@ -249,12 +161,9 @@
     0.75rem;
 
   border: 0;
+  border-radius: 14px;
 
-  border-radius:
-    14px;
-
-  background:
-    transparent;
+  background: transparent;
 
   color:
     var(--olive-dark);
@@ -263,39 +172,24 @@
     var(--font-manrope),
     sans-serif;
 
-  font-size:
-    0.58rem;
-
+  font-size: 0.58rem;
   font-weight: 650;
 
-  letter-spacing:
-    0.12em;
+  letter-spacing: 0.12em;
 
-  text-transform:
-    uppercase;
-
-  text-align:
-    left;
+  text-transform: uppercase;
+  text-align: left;
 
   cursor: pointer;
 
   transition:
-    background
-      0.24s
-      ease,
-    transform
-      0.24s
-      ease;
+    background 0.24s ease,
+    transform 0.24s ease;
 }
 
 .navigationItem:hover {
   background:
-    rgba(
-      168,
-      126,
-      97,
-      0.1
-    );
+    rgba(105, 72, 51, 0.1);
 
   transform:
     translateX(2px);
@@ -311,17 +205,12 @@
     var(--earth-accent);
 }
 
-/* ========================================
-   AÇÕES
-======================================== */
-
 .actions {
   display: grid;
 
   gap: 0.55rem;
 
-  padding-top:
-    0.7rem;
+  padding-top: 0.7rem;
 }
 
 .secondaryAction,
@@ -337,9 +226,7 @@
   min-height: 58px;
 
   display: flex;
-
-  align-items:
-    center;
+  align-items: center;
 
   gap: 0.75rem;
 
@@ -347,40 +234,24 @@
     0.6rem
     0.7rem;
 
-  border-radius:
-    16px;
+  border-radius: 16px;
 
   background:
-    rgba(
-      109,
-      118,
-      83,
-      0.08
-    );
+    rgba(109, 118, 83, 0.08);
 
   color:
     var(--olive-dark);
 
-  text-align:
-    left;
+  text-align: left;
 
   transition:
-    background
-      0.24s
-      ease,
-    transform
-      0.24s
-      ease;
+    background 0.24s ease,
+    transform 0.24s ease;
 }
 
 .secondaryAction:hover {
   background:
-    rgba(
-      109,
-      118,
-      83,
-      0.14
-    );
+    rgba(109, 118, 83, 0.14);
 
   transform:
     translateY(-1px);
@@ -393,12 +264,8 @@
   flex-shrink: 0;
 
   display: flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
+  align-items: center;
+  justify-content: center;
 
   border-radius: 50%;
 
@@ -408,16 +275,14 @@
   color:
     var(--cream-light);
 
-  font-size:
-    0.85rem;
+  font-size: 0.85rem;
 }
 
 .secondaryAction
 > span:last-child {
   display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
   gap: 0.17rem;
 }
@@ -430,50 +295,30 @@
 }
 
 .secondaryAction strong {
-  font-size:
-    0.54rem;
-
+  font-size: 0.54rem;
   font-weight: 700;
 
-  letter-spacing:
-    0.14em;
+  letter-spacing: 0.14em;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
 
 .secondaryAction small {
-  font-size:
-    0.52rem;
-
+  font-size: 0.52rem;
   font-weight: 500;
 
-  letter-spacing:
-    0.05em;
+  letter-spacing: 0.05em;
 
   color:
-    rgba(
-      63,
-      70,
-      53,
-      0.58
-    );
+    rgba(63, 70, 53, 0.58);
 }
-
-/* ========================================
-   ENVIAR MOMENTO
-======================================== */
 
 .primaryAction {
   min-height: 52px;
 
   display: flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
+  align-items: center;
+  justify-content: center;
 
   gap: 0.65rem;
 
@@ -481,8 +326,7 @@
     0
     1rem;
 
-  border-radius:
-    16px;
+  border-radius: 16px;
 
   background:
     var(--earth-accent);
@@ -494,27 +338,17 @@
     var(--font-manrope),
     sans-serif;
 
-  font-size:
-    0.54rem;
-
+  font-size: 0.54rem;
   font-weight: 700;
 
-  letter-spacing:
-    0.16em;
+  letter-spacing: 0.16em;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 
   transition:
-    background
-      0.24s
-      ease,
-    transform
-      0.24s
-      ease,
-    box-shadow
-      0.24s
-      ease;
+    background 0.24s ease,
+    transform 0.24s ease,
+    box-shadow 0.24s ease;
 }
 
 .primaryAction:hover {
@@ -528,12 +362,7 @@
     0
     12px
     28px
-    rgba(
-      143,
-      104,
-      77,
-      0.24
-    );
+    rgba(86, 57, 39, 0.28);
 }
 
 .primaryAction svg {
@@ -541,22 +370,13 @@
   height: 18px;
 }
 
-/* ========================================
-   BOTÃO MENU
-======================================== */
-
 .trigger {
   min-width: 112px;
-
   min-height: 58px;
 
   display: flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
+  align-items: center;
+  justify-content: center;
 
   gap: 0.7rem;
 
@@ -566,15 +386,9 @@
 
   border:
     1px solid
-    rgba(
-      143,
-      104,
-      77,
-      0.35
-    );
+    rgba(105, 72, 51, 0.38);
 
-  border-radius:
-    999px;
+  border-radius: 999px;
 
   background:
     var(--earth-accent);
@@ -586,34 +400,18 @@
     0
     14px
     38px
-    rgba(
-      86,
-      62,
-      45,
-      0.2
-    );
+    rgba(64, 43, 30, 0.22);
 
-  backdrop-filter:
-    blur(14px);
-
-  -webkit-backdrop-filter:
-    blur(14px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
   cursor: pointer;
 
   transition:
-    background
-      0.3s
-      ease,
-    color
-      0.3s
-      ease,
-    transform
-      0.3s
-      ease,
-    box-shadow
-      0.3s
-      ease;
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .trigger:hover,
@@ -631,12 +429,7 @@
     0
     18px
     45px
-    rgba(
-      86,
-      62,
-      45,
-      0.27
-    );
+    rgba(64, 43, 30, 0.3);
 }
 
 .triggerText {
@@ -644,21 +437,13 @@
     var(--font-manrope),
     sans-serif;
 
-  font-size:
-    0.55rem;
-
+  font-size: 0.55rem;
   font-weight: 700;
 
-  letter-spacing:
-    0.2em;
+  letter-spacing: 0.2em;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
-
-/* ========================================
-   ÍCONE MENU
-======================================== */
 
 .menuIcon {
   width: 18px;
@@ -667,12 +452,8 @@
   position: relative;
 
   display: flex;
-
-  flex-direction:
-    column;
-
-  justify-content:
-    space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .menuIcon i {
@@ -681,8 +462,7 @@
   width: 100%;
   height: 1.5px;
 
-  border-radius:
-    999px;
+  border-radius: 999px;
 
   background:
     currentColor;
@@ -691,21 +471,15 @@
     center;
 
   transition:
-    transform
-      0.28s
-      ease,
-    opacity
-      0.2s
-      ease;
+    transform 0.28s ease,
+    opacity 0.2s ease;
 }
 
 .triggerOpen
 .menuIcon
 i:nth-child(1) {
   transform:
-    translateY(
-      6.25px
-    )
+    translateY(6.25px)
     rotate(45deg);
 }
 
@@ -719,15 +493,9 @@ i:nth-child(2) {
 .menuIcon
 i:nth-child(3) {
   transform:
-    translateY(
-      -6.25px
-    )
+    translateY(-6.25px)
     rotate(-45deg);
 }
-
-/* ========================================
-   MOBILE
-======================================== */
 
 @media (
   max-width: 600px
@@ -752,7 +520,6 @@ i:nth-child(3) {
 
     width: 58px;
     height: 58px;
-
     min-height: 58px;
 
     padding: 0;

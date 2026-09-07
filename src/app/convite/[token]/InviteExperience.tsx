@@ -483,14 +483,21 @@ export default function InviteExperience({
                     styles.letterMessage
                   }
                 >
-                  Com alegria,
-                  convidamos vocês para
-                  celebrar conosco o
-                  início deste novo
-                  capítulo e compartilhar
-                  um dos momentos mais
-                  especiais das nossas
-                  vidas.
+                  Com alegria, convidamos{" "}
+                  {guestCount === 1
+                    ? "você"
+                    : "vocês"}{" "}
+                  para celebrar conosco a
+                  cerimônia e a recepção do
+                  nosso casamento. No site,{" "}
+                  {guestCount === 1
+                    ? "você encontrará"
+                    : "vocês encontrarão"}{" "}
+                  os detalhes completos do
+                  grande dia, com informações
+                  sobre os locais, horários e
+                  tudo o que preparamos para
+                  este momento tão especial.
                 </p>
 
                 <div

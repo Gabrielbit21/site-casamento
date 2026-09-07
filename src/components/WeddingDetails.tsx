@@ -113,7 +113,7 @@ export default function WeddingDetails() {
               href={googleCalendarUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="wedding-calendar-button"
+              className={`wedding-calendar-button ${styles.calendarAccent}`}
             >
               Adicionar ao Google Agenda
             </a>

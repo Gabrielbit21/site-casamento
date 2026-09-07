@@ -1,19 +1,28 @@
-.routeAccent.routeAccent {
+.routeAccent.routeAccent,
+.calendarAccent.calendarAccent {
   background:
-    #a87e61;
+    #694833;
 
   color:
     var(--cream-light);
+
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
 
   box-shadow:
     0
     11px
     25px
     rgba(
-      105,
-      73,
-      52,
-      0.2
+      64,
+      43,
+      30,
+      0.24
     );
 
   transition:
@@ -28,24 +37,25 @@
       ease;
 }
 
-.routeAccent.routeAccent:hover {
+.routeAccent.routeAccent:hover,
+.calendarAccent.calendarAccent:hover {
   opacity: 1;
 
   transform:
     translateY(-2px);
 
   background:
-    #8f684d;
+    #563927;
 
   box-shadow:
     0
     15px
     32px
     rgba(
-      105,
-      73,
-      52,
-      0.28
+      64,
+      43,
+      30,
+      0.34
     );
 }
 

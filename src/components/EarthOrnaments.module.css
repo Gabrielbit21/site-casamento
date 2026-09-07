@@ -15,12 +15,12 @@
   height: 465px;
 
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 290 470' fill='none'%3E%3Cg stroke='%23A87E61' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M225 4C188 55 170 104 169 157C168 220 190 286 250 450' stroke-opacity='.42' stroke-width='1.45'/%3E%3Cpath d='M170 92C190 74 214 68 237 74C222 95 195 102 170 92Z' stroke-opacity='.38' stroke-width='1.25'/%3E%3Cpath d='M166 140C143 126 121 124 102 133C119 151 143 154 166 140Z' stroke-opacity='.38' stroke-width='1.25'/%3E%3Cpath d='M177 190C197 172 221 168 243 176C227 196 201 201 177 190Z' stroke-opacity='.38' stroke-width='1.25'/%3E%3Cpath d='M184 242C159 228 136 228 116 238C133 258 160 260 184 242Z' stroke-opacity='.38' stroke-width='1.25'/%3E%3Cpath d='M205 303C226 285 251 282 273 291C256 312 229 316 205 303Z' stroke-opacity='.38' stroke-width='1.25'/%3E%3Cpath d='M217 356C193 342 169 343 149 354C168 373 194 373 217 356Z' stroke-opacity='.38' stroke-width='1.25'/%3E%3C/g%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 290 470' fill='none'%3E%3Cg stroke='%23694833' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M225 4C188 55 170 104 169 157C168 220 190 286 250 450' stroke-opacity='.44' stroke-width='1.45'/%3E%3Cpath d='M170 92C190 74 214 68 237 74C222 95 195 102 170 92Z' stroke-opacity='.4' stroke-width='1.25'/%3E%3Cpath d='M166 140C143 126 121 124 102 133C119 151 143 154 166 140Z' stroke-opacity='.4' stroke-width='1.25'/%3E%3Cpath d='M177 190C197 172 221 168 243 176C227 196 201 201 177 190Z' stroke-opacity='.4' stroke-width='1.25'/%3E%3Cpath d='M184 242C159 228 136 228 116 238C133 258 160 260 184 242Z' stroke-opacity='.4' stroke-width='1.25'/%3E%3Cpath d='M205 303C226 285 251 282 273 291C256 312 229 316 205 303Z' stroke-opacity='.4' stroke-width='1.25'/%3E%3Cpath d='M217 356C193 342 169 343 149 354C168 373 194 373 217 356Z' stroke-opacity='.4' stroke-width='1.25'/%3E%3C/g%3E%3C/svg%3E");
 
   background-repeat: no-repeat;
   background-size: contain;
 
-  opacity: 0.7;
+  opacity: 0.68;
 }
 
 /* ========================================
@@ -31,8 +31,7 @@
   top: -78px;
   right: -82px;
 
-  transform:
-    rotate(-5deg);
+  transform: rotate(-5deg);
 }
 
 .gallery .branchB {
@@ -43,7 +42,7 @@
     scaleX(-1)
     rotate(-10deg);
 
-  opacity: 0.52;
+  opacity: 0.5;
 }
 
 /* ========================================
@@ -54,8 +53,7 @@
   top: -50px;
   right: -74px;
 
-  transform:
-    rotate(-4deg);
+  transform: rotate(-4deg);
 }
 
 .transition .branchB {
@@ -66,7 +64,7 @@
     scaleX(-1)
     rotate(-8deg);
 
-  opacity: 0.56;
+  opacity: 0.54;
 }
 
 /* ========================================
@@ -81,17 +79,16 @@
     scaleX(-1)
     rotate(-7deg);
 
-  opacity: 0.58;
+  opacity: 0.56;
 }
 
 .mural .branchB {
   right: -88px;
   bottom: 11%;
 
-  transform:
-    rotate(-5deg);
+  transform: rotate(-5deg);
 
-  opacity: 0.54;
+  opacity: 0.52;
 }
 
 /* ========================================
@@ -102,10 +99,9 @@
   top: 4%;
   right: -88px;
 
-  transform:
-    rotate(-6deg);
+  transform: rotate(-6deg);
 
-  opacity: 0.6;
+  opacity: 0.58;
 }
 
 .gifts .branchB {
@@ -116,7 +112,7 @@
     scaleX(-1)
     rotate(-9deg);
 
-  opacity: 0.5;
+  opacity: 0.48;
 }
 
 /* ========================================
@@ -140,7 +136,7 @@
     left: -78px;
     bottom: 1%;
 
-    opacity: 0.5;
+    opacity: 0.48;
   }
 
   .transition .branchA {
@@ -152,34 +148,34 @@
     left: -74px;
     bottom: -26px;
 
-    opacity: 0.52;
+    opacity: 0.5;
   }
 
   .mural .branchA {
     top: 4%;
     left: -78px;
 
-    opacity: 0.56;
+    opacity: 0.54;
   }
 
   .mural .branchB {
     right: -76px;
     bottom: 7%;
 
-    opacity: 0.5;
+    opacity: 0.48;
   }
 
   .gifts .branchA {
     top: 2%;
     right: -78px;
 
-    opacity: 0.58;
+    opacity: 0.56;
   }
 
   .gifts .branchB {
     left: -78px;
     bottom: 1%;
 
-    opacity: 0.48;
+    opacity: 0.46;
   }
 }

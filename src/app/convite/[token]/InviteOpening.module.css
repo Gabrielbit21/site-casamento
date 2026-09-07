@@ -375,7 +375,7 @@
   position: relative;
 
   width: 100%;
-  min-height: 540px;
+  min-height: 610px;
 
   display: flex;
 
@@ -386,9 +386,9 @@
   justify-content: flex-start;
 
   padding:
-    3.1rem
+    3.35rem
     3.3rem
-    2.6rem;
+    3rem;
 
   overflow: hidden;
 
@@ -624,7 +624,7 @@
 }
 
 /* ========================================
-   2027 — MAIS PRESENTE
+   2027
 ======================================== */
 
 .letterDate small {
@@ -683,10 +683,10 @@
   width:
     min(
       100%,
-      365px
+      390px
     );
 
-  margin-top: 1.75rem;
+  margin-top: 1.8rem;
 
   font-family:
     var(--font-cormorant),
@@ -696,7 +696,7 @@
 
   font-weight: 500;
 
-  line-height: 1.52;
+  line-height: 1.55;
 
   color: #55594f;
 }
@@ -710,7 +710,7 @@
 
   z-index: 2;
 
-  margin-top: 1.5rem;
+  margin-top: 1.65rem;
 
   min-width: 225px;
 
@@ -748,7 +748,7 @@
 }
 
 /* ========================================
-   TEXTO DA RESERVA — MAIOR
+   TEXTO DA RESERVA
 ======================================== */
 
 .guestReservation span {
@@ -796,7 +796,7 @@
 
   z-index: 4;
 
-  margin-top: 1.5rem;
+  margin-top: 1.55rem;
 
   min-width: 205px;
   min-height: 50px;
@@ -1096,8 +1096,6 @@
   cursor: pointer;
 }
 
-
-
 /* ========================================
    MONOGRAMA OFICIAL
 ======================================== */
@@ -1373,12 +1371,12 @@
   }
 
   .letterInner {
-    min-height: 510px;
+    min-height: 575px;
 
     padding:
-      2.25rem
-      1.4rem
-      1.8rem;
+      2.5rem
+      1.35rem
+      2.15rem;
   }
 
   .weddingEyebrow {
@@ -1433,15 +1431,23 @@
   }
 
   .letterMessage {
-    margin-top: 1.35rem;
+    width:
+      min(
+        100%,
+        330px
+      );
 
-    font-size: 1rem;
+    margin-top: 1.4rem;
+
+    font-size: 0.98rem;
+
+    line-height: 1.5;
   }
 
   .guestReservation {
     min-width: 200px;
 
-    margin-top: 1.2rem;
+    margin-top: 1.35rem;
   }
 
   .guestReservation span {
@@ -1457,7 +1463,7 @@
 
     min-height: 46px;
 
-    margin-top: 1.2rem;
+    margin-top: 1.35rem;
 
     font-size: 0.43rem;
   }
