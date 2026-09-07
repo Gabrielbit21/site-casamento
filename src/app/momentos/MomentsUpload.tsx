@@ -869,22 +869,6 @@ export default function MomentsUpload() {
           ) : null}
         </form>
       </section>
-
-      <footer
-        className={
-          styles.footer
-        }
-      >
-        <span>
-          G & L
-        </span>
-
-        <p>
-          Um registro de cada
-          vez, construindo uma
-          lembrança coletiva.
-        </p>
-      </footer>
     </main>
   );
 }
