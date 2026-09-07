@@ -7,11 +7,19 @@
 :root {
   --cream: #f6f4ee;
   --cream-light: #fbfaf7;
+  --paper: #f8f6f1;
 
   --olive: #6d7653;
   --olive-dark: #3f4635;
 
   --text-soft: #6d7067;
+
+  --earth: #b88c68;
+  --earth-soft: #d8bba3;
+  --earth-pale: rgba(184, 140, 104, 0.09);
+  --earth-line: rgba(184, 140, 104, 0.18);
+
+  --white-section-shadow: 0 24px 70px rgba(63, 70, 53, 0.06);
 }
 
 /* ========================================
@@ -1200,4 +1208,82 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+/* ========================================
+   DETALHES ORGÂNICOS DAS SEÇÕES CLARAS
+======================================== */
+
+.section-light {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.section-light::before,
+.section-light::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/*
+  Mancha orgânica suave
+*/
+.section-light::before {
+  width: 420px;
+  height: 420px;
+  border-radius: 42% 58% 62% 38% / 46% 37% 63% 54%;
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      rgba(216, 187, 163, 0.22) 0%,
+      rgba(216, 187, 163, 0.12) 34%,
+      rgba(216, 187, 163, 0.04) 62%,
+      transparent 78%
+    );
+  filter: blur(2px);
+  opacity: 0.85;
+}
+
+/*
+  Ramo botânico linear delicado
+*/
+.section-light::after {
+  width: 260px;
+  height: 420px;
+  opacity: 0.65;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg width='260' height='420' viewBox='0 0 260 420' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M208 6C168 54 151 98 148 156C145 214 164 279 224 401' stroke='%23B88C68' stroke-opacity='0.22' stroke-width='1.4'/%3E%3Cellipse cx='160' cy='76' rx='22' ry='10' transform='rotate(-46 160 76)' stroke='%23B88C68' stroke-opacity='0.22' stroke-width='1.2'/%3E%3Cellipse cx='132' cy='126' rx='22' ry='10' transform='rotate(22 132 126)' stroke='%23B88C68' stroke-opacity='0.22' stroke-width='1.2'/%3E%3Cellipse cx='170' cy='176' rx='22' ry='10' transform='rotate(-35 170 176)' stroke='%23B88C68' stroke-opacity='0.22' stroke-width='1.2'/%3E%3Cellipse cx='136' cy='226' rx='22' ry='10' transform='rotate(28 136 226)' stroke='%23B88C68' stroke-opacity='0.22' stroke-width='1.2'/%3E%3Cellipse cx='182' cy='286' rx='22' ry='10' transform='rotate(-36 182 286)' stroke='%23B88C68' stroke-opacity='0.22' stroke-width='1.2'/%3E%3Cellipse cx='152' cy='340' rx='22' ry='10' transform='rotate(24 152 340)' stroke='%23B88C68' stroke-opacity='0.22' stroke-width='1.2'/%3E%3C/svg%3E");
+}
+
+/* variação: detalhe no topo direito */
+.section-light--top-right::before {
+  top: -130px;
+  right: -120px;
+}
+
+.section-light--top-right::after {
+  top: -20px;
+  right: -20px;
+}
+
+/* variação: detalhe no canto inferior esquerdo */
+.section-light--bottom-left::before {
+  bottom: -140px;
+  left: -120px;
+}
+
+.section-light--bottom-left::after {
+  bottom: -18px;
+  left: -10px;
+  transform: scaleX(-1);
+}
+
+/* garante que o conteúdo fique acima dos adornos */
+.section-light > * {
+  position: relative;
+  z-index: 1;
+}
 }

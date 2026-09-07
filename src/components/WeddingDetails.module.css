@@ -1,0 +1,61 @@
+.routeAccent.routeAccent {
+  background:
+    #a87e61;
+
+  color:
+    var(--cream-light);
+
+  box-shadow:
+    0
+    11px
+    25px
+    rgba(
+      105,
+      73,
+      52,
+      0.2
+    );
+
+  transition:
+    transform
+      0.35s
+      ease,
+    background
+      0.35s
+      ease,
+    box-shadow
+      0.35s
+      ease;
+}
+
+.routeAccent.routeAccent:hover {
+  opacity: 1;
+
+  transform:
+    translateY(-2px);
+
+  background:
+    #8f684d;
+
+  box-shadow:
+    0
+    15px
+    32px
+    rgba(
+      105,
+      73,
+      52,
+      0.28
+    );
+}
+
+.routeAccent
+:global(.route-icon) {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.16
+    );
+}

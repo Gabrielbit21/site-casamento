@@ -9,6 +9,8 @@ import {
   useState,
 } from "react";
 
+import EarthOrnaments from "@/components/EarthOrnaments";
+
 import {
   getMomentClientKey,
 } from "@/lib/browserId";
@@ -509,7 +511,7 @@ export default function MomentsFeed() {
 
         if (
           typeof navigator.share ===
-          "function"
+            "function"
         ) {
           await navigator.share(
             {
@@ -561,22 +563,15 @@ export default function MomentsFeed() {
         styles.section
       }
     >
+      <EarthOrnaments
+        variant="mural"
+      />
+
       <div
         className={
           styles.heading
         }
       >
-        <p className="section-label">
-          MOMENTOS
-        </p>
-
-        <h2>
-          O casamento pelo olhar
-          <br />
-          de quem viveu com a
-          gente.
-        </h2>
-
         <p
           className={
             styles.intro

@@ -6,6 +6,8 @@ import {
   useState,
 } from "react";
 
+import EarthOrnaments from "@/components/EarthOrnaments";
+
 import styles from "./Gifts.module.css";
 
 type GiftStatus =
@@ -161,210 +163,220 @@ export default function Gifts() {
         id="presentes"
         className={styles.section}
       >
-        <div className={styles.heading}>
-          <p className={styles.label}>
-            LISTA DE PRESENTES
-          </p>
+        <EarthOrnaments
+          variant="gifts"
+        />
 
-          <h2 className={styles.title}>
-            Um pedacinho
-            <br />
-            da nossa nova casa.
-          </h2>
+        <div
+          className={
+            styles.contentLayer
+          }
+        >
+          <div className={styles.heading}>
+            <p className={styles.label}>
+              LISTA DE PRESENTES
+            </p>
 
-          <p
-            className={
-              styles.description
-            }
-          >
-            Para quem quiser fazer parte desse novo começo, 
-            preparamos uma seleção especial de presentes 
-            que farão parte da nossa vida a dois..
-          </p>
+            <h2 className={styles.title}>
+              Um pedacinho
+              <br />
+              da nossa nova casa.
+            </h2>
 
-          <p className={styles.pixInfo}>
-            O valor de cada presente será
-            enviado diretamente via Pix.
-          </p>
-        </div>
+            <p
+              className={
+                styles.description
+              }
+            >
+              Para quem quiser fazer parte desse novo começo,
+              preparamos uma seleção especial de presentes
+              que farão parte da nossa vida a dois.
+            </p>
 
-        <div className={styles.grid}>
-          {visibleGifts.map((gift) => {
-            const unavailable =
-              gift.status !== "available";
+            <p className={styles.pixInfo}>
+              O valor de cada presente será
+              enviado diretamente via Pix.
+            </p>
+          </div>
 
-            return (
-              <article
-                key={gift.id}
-                className={`${styles.card} ${
-                  unavailable
-                    ? styles.cardUnavailable
-                    : ""
-                }`}
-              >
-                <div
-                  className={
-                    styles.imageArea
-                  }
+          <div className={styles.grid}>
+            {visibleGifts.map((gift) => {
+              const unavailable =
+                gift.status !== "available";
+
+              return (
+                <article
+                  key={gift.id}
+                  className={`${styles.card} ${
+                    unavailable
+                      ? styles.cardUnavailable
+                      : ""
+                  }`}
                 >
-                  {gift.image ? (
-                    <Image
-                      src={gift.image}
-                      alt={gift.name}
-                      fill
-                      sizes="
-                        (max-width: 650px) 90vw,
-                        (max-width: 1000px) 45vw,
-                        300px
-                      "
-                      className={
-                        styles.image
-                      }
-                    />
-                  ) : (
-                    <div
-                      className={
-                        styles.placeholder
-                      }
-                    >
-                      <span
-                        className={
-                          styles.initials
-                        }
-                      >
-                        {gift.initials}
-                      </span>
-
-                      <span
-                        className={
-                          styles.placeholderCategory
-                        }
-                      >
-                        {gift.category}
-                      </span>
-                    </div>
-                  )}
-
-                  {unavailable && (
-                    <div
-                      className={
-                        styles.unavailableOverlay
-                      }
-                    >
-                      <span
-                        className={
-                          styles.unavailableBadge
-                        }
-                      >
-                        {gift.status ===
-                        "paid"
-                          ? "Presente recebido"
-                          : "Indisponível"}
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                <div
-                  className={
-                    styles.cardContent
-                  }
-                >
-                  <p
+                  <div
                     className={
-                      styles.category
+                      styles.imageArea
                     }
                   >
-                    {gift.category}
-                  </p>
+                    {gift.image ? (
+                      <Image
+                        src={gift.image}
+                        alt={gift.name}
+                        fill
+                        sizes="
+                          (max-width: 650px) 90vw,
+                          (max-width: 1000px) 45vw,
+                          300px
+                        "
+                        className={
+                          styles.image
+                        }
+                      />
+                    ) : (
+                      <div
+                        className={
+                          styles.placeholder
+                        }
+                      >
+                        <span
+                          className={
+                            styles.initials
+                          }
+                        >
+                          {gift.initials}
+                        </span>
 
-                  <h3
-                    className={
-                      styles.giftName
-                    }
-                  >
-                    {gift.name}
-                  </h3>
+                        <span
+                          className={
+                            styles.placeholderCategory
+                          }
+                        >
+                          {gift.category}
+                        </span>
+                      </div>
+                    )}
+
+                    {unavailable && (
+                      <div
+                        className={
+                          styles.unavailableOverlay
+                        }
+                      >
+                        <span
+                          className={
+                            styles.unavailableBadge
+                          }
+                        >
+                          {gift.status ===
+                          "paid"
+                            ? "Presente recebido"
+                            : "Indisponível"}
+                        </span>
+                      </div>
+                    )}
+                  </div>
 
                   <div
                     className={
-                      styles.cardFooter
+                      styles.cardContent
                     }
                   >
+                    <p
+                      className={
+                        styles.category
+                      }
+                    >
+                      {gift.category}
+                    </p>
+
+                    <h3
+                      className={
+                        styles.giftName
+                      }
+                    >
+                      {gift.name}
+                    </h3>
+
                     <div
                       className={
-                        styles.priceBlock
+                        styles.cardFooter
                       }
                     >
-                      <span
+                      <div
                         className={
-                          styles.priceLabel
+                          styles.priceBlock
                         }
                       >
-                        Valor
-                      </span>
+                        <span
+                          className={
+                            styles.priceLabel
+                          }
+                        >
+                          Valor
+                        </span>
 
-                      <strong
-                        className={
-                          styles.price
+                        <strong
+                          className={
+                            styles.price
+                          }
+                        >
+                          {formatCurrency(
+                            gift.value
+                          )}
+                        </strong>
+                      </div>
+
+                      <button
+                        type="button"
+                        disabled={unavailable}
+                        onClick={() =>
+                          setSelectedGift(
+                            gift
+                          )
                         }
+                        className={`${styles.giftButton} ${
+                          unavailable
+                            ? styles.giftButtonUnavailable
+                            : ""
+                        }`}
                       >
-                        {formatCurrency(
-                          gift.value
-                        )}
-                      </strong>
+                        {unavailable
+                          ? "Escolhido"
+                          : "Presentear"}
+                      </button>
                     </div>
-
-                    <button
-                      type="button"
-                      disabled={unavailable}
-                      onClick={() =>
-                        setSelectedGift(
-                          gift
-                        )
-                      }
-                      className={`${styles.giftButton} ${
-                        unavailable
-                          ? styles.giftButtonUnavailable
-                          : ""
-                      }`}
-                    >
-                      {unavailable
-                        ? "Escolhido"
-                        : "Presentear"}
-                    </button>
                   </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
+                </article>
+              );
+            })}
+          </div>
 
-        {gifts.length >
-          INITIAL_VISIBLE_GIFTS && (
-          <div
-            className={
-              styles.moreWrapper
-            }
-          >
-            <button
-              type="button"
+          {gifts.length >
+            INITIAL_VISIBLE_GIFTS && (
+            <div
               className={
-                styles.moreButton
-              }
-              onClick={() =>
-                setShowAll(
-                  (current) =>
-                    !current
-                )
+                styles.moreWrapper
               }
             >
-              {showAll
-                ? "Ver menos"
-                : "Ver todos os presentes"}
-            </button>
-          </div>
-        )}
+              <button
+                type="button"
+                className={
+                  styles.moreButton
+                }
+                onClick={() =>
+                  setShowAll(
+                    (current) =>
+                      !current
+                  )
+                }
+              >
+                {showAll
+                  ? "Ver menos"
+                  : "Ver todos os presentes"}
+              </button>
+            </div>
+          )}
+        </div>
       </section>
 
       {selectedGift && (

@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import Gallery from "@/components/Gallery";
 import StoryTransition from "@/components/StoryTransition";
 import WeddingDetails from "@/components/WeddingDetails";
+import WhiteTransition from "@/components/WhiteTransition";
 import MomentsFeed from "@/components/MomentsFeed";
 import Gifts from "@/components/Gifts";
 import FloatingMenu from "@/components/FloatingMenu";
@@ -18,9 +19,9 @@ export default function Home() {
 
       <StoryTransition />
 
-      <div id="casamento">
-        <WeddingDetails />
-      </div>
+      <WeddingDetails />
+
+      <WhiteTransition />
 
       <div id="momentos">
         <MomentsFeed />

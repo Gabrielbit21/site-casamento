@@ -20,6 +20,9 @@ const RSVP_STATE_EVENT =
 const STORAGE_KEY =
   "wedding_invite_token";
 
+const COOKIE_MAX_AGE_SECONDS =
+  60 * 60 * 24 * 730;
+
 type RSVPStatus =
   | "pending"
   | "confirmed"
@@ -60,6 +63,14 @@ type LoadStatus =
   | "ready"
   | "error";
 
+type SubmitPayloadItem = {
+  guest_id: string;
+  status:
+    | "confirmed"
+    | "declined";
+  dietary_restrictions: string;
+};
+
 function hasEveryGuestResponded(
   guests: Guest[]
 ) {
@@ -95,6 +106,81 @@ function getTokenFromPath() {
   }
 }
 
+function getTokenFromCookie() {
+  const prefix =
+    `${STORAGE_KEY}=`;
+
+  const cookie =
+    document.cookie
+      .split(";")
+      .map((item) =>
+        item.trim()
+      )
+      .find((item) =>
+        item.startsWith(
+          prefix
+        )
+      );
+
+  if (!cookie) {
+    return null;
+  }
+
+  const rawValue =
+    cookie.slice(
+      prefix.length
+    );
+
+  try {
+    return decodeURIComponent(
+      rawValue
+    );
+  } catch {
+    return rawValue;
+  }
+}
+
+function persistInviteToken(
+  inviteToken: string
+) {
+  try {
+    sessionStorage.setItem(
+      STORAGE_KEY,
+      inviteToken
+    );
+  } catch {
+    // O cookie/localStorage continuam como fallback.
+  }
+
+  try {
+    localStorage.setItem(
+      STORAGE_KEY,
+      inviteToken
+    );
+  } catch {
+    // O cookie/sessionStorage continuam como fallback.
+  }
+
+  try {
+    const secureAttribute =
+      window.location.protocol ===
+      "https:"
+        ? "; Secure"
+        : "";
+
+    document.cookie =
+      [
+        `${STORAGE_KEY}=${encodeURIComponent(inviteToken)}`,
+        "Path=/",
+        `Max-Age=${COOKIE_MAX_AGE_SECONDS}`,
+        "SameSite=Lax",
+      ].join("; ") +
+      secureAttribute;
+  } catch {
+    // Os storages continuam como fallback.
+  }
+}
+
 function resolveInviteToken() {
   const params =
     new URLSearchParams(
@@ -104,32 +190,52 @@ function resolveInviteToken() {
   const queryToken =
     params.get("convite");
 
-  if (queryToken) {
-    sessionStorage.setItem(
-      STORAGE_KEY,
-      queryToken
-    );
-
-    return queryToken;
-  }
-
   const pathToken =
     getTokenFromPath();
 
-  if (pathToken) {
-    sessionStorage.setItem(
-      STORAGE_KEY,
-      pathToken
-    );
+  let sessionToken:
+    | string
+    | null = null;
 
-    return pathToken;
+  let localToken:
+    | string
+    | null = null;
+
+  try {
+    sessionToken =
+      sessionStorage.getItem(
+        STORAGE_KEY
+      );
+  } catch {
+    sessionToken = null;
   }
 
-  return (
-    sessionStorage.getItem(
-      STORAGE_KEY
-    ) || null
-  );
+  try {
+    localToken =
+      localStorage.getItem(
+        STORAGE_KEY
+      );
+  } catch {
+    localToken = null;
+  }
+
+  const cookieToken =
+    getTokenFromCookie();
+
+  const token =
+    queryToken ||
+    pathToken ||
+    sessionToken ||
+    localToken ||
+    cookieToken;
+
+  if (token) {
+    persistInviteToken(
+      token
+    );
+  }
+
+  return token;
 }
 
 function formatDeadline(
@@ -160,6 +266,145 @@ function formatDeadline(
     ",",
     " às"
   );
+}
+
+function getErrorMessage(
+  error: unknown
+) {
+  if (
+    error instanceof Error
+  ) {
+    return error.message;
+  }
+
+  if (
+    error &&
+    typeof error === "object" &&
+    "message" in error
+  ) {
+    const message =
+      (
+        error as {
+          message?: unknown;
+        }
+      ).message;
+
+    if (
+      typeof message ===
+      "string"
+    ) {
+      return message;
+    }
+  }
+
+  return "Não foi possível salvar a confirmação.";
+}
+
+function isTransientNetworkError(
+  error: unknown
+) {
+  const message =
+    getErrorMessage(
+      error
+    ).toLowerCase();
+
+  return (
+    message.includes(
+      "failed to fetch"
+    ) ||
+    message.includes(
+      "networkerror"
+    ) ||
+    message.includes(
+      "network request failed"
+    ) ||
+    message.includes(
+      "load failed"
+    )
+  );
+}
+
+function wait(
+  milliseconds: number
+) {
+  return new Promise<void>(
+    (resolve) => {
+      window.setTimeout(
+        resolve,
+        milliseconds
+      );
+    }
+  );
+}
+
+async function submitRsvpWithRetry(
+  token: string,
+  payload: SubmitPayloadItem[]
+) {
+  const delays = [
+    0,
+    650,
+    1500,
+  ];
+
+  let lastError:
+    unknown = null;
+
+  for (
+    let attempt = 0;
+    attempt < delays.length;
+    attempt += 1
+  ) {
+    const delay =
+      delays[attempt];
+
+    if (delay > 0) {
+      await wait(delay);
+    }
+
+    try {
+      const {
+        error,
+      } =
+        await supabase.rpc(
+          "submit_rsvp",
+          {
+            p_token: token,
+            p_responses:
+              payload,
+          }
+        );
+
+      if (!error) {
+        return null;
+      }
+
+      lastError = error;
+
+      if (
+        !isTransientNetworkError(
+          error
+        )
+      ) {
+        return error;
+      }
+    } catch (
+      requestError
+    ) {
+      lastError =
+        requestError;
+
+      if (
+        !isTransientNetworkError(
+          requestError
+        )
+      ) {
+        return requestError;
+      }
+    }
+  }
+
+  return lastError;
 }
 
 export default function RSVPModal() {
@@ -623,7 +868,8 @@ export default function RSVPModal() {
 
       setSubmitting(true);
 
-      const payload =
+      const payload:
+        SubmitPayloadItem[] =
         guests.map(
           (guest) => {
             const response =
@@ -636,7 +882,9 @@ export default function RSVPModal() {
                 guest.id,
 
               status:
-                response.status,
+                response.status as
+                  | "confirmed"
+                  | "declined",
 
               dietary_restrictions:
                 response.status ===
@@ -648,32 +896,35 @@ export default function RSVPModal() {
           }
         );
 
-      const {
-        error,
-      } =
-        await supabase.rpc(
-          "submit_rsvp",
-          {
-            p_token:
-              token,
-
-            p_responses:
-              payload,
-          }
+      const submitError =
+        await submitRsvpWithRetry(
+          token,
+          payload
         );
 
-      if (error) {
+      if (submitError) {
         console.error(
           "Erro ao salvar RSVP:",
-          error
+          submitError
         );
 
         setSubmitting(false);
 
-        setErrorMessage(
-          error.message ||
-            "Não foi possível salvar a confirmação."
-        );
+        if (
+          isTransientNetworkError(
+            submitError
+          )
+        ) {
+          setErrorMessage(
+            "A conexão com o servidor oscilou. Verifique sua internet e tente novamente; nenhuma resposta incompleta foi registrada."
+          );
+        } else {
+          setErrorMessage(
+            getErrorMessage(
+              submitError
+            )
+          );
+        }
 
         return;
       }
@@ -744,6 +995,14 @@ export default function RSVPModal() {
       className={
         styles.overlay
       }
+      style={{
+        alignItems:
+          "center",
+        justifyContent:
+          "center",
+        padding:
+          "clamp(0.75rem, 2vw, 1.5rem)",
+      }}
       role="presentation"
       onMouseDown={(
         event
@@ -764,6 +1023,18 @@ export default function RSVPModal() {
         className={
           styles.modal
         }
+        style={{
+          width:
+            "min(100%, 720px)",
+          maxHeight:
+            "calc(100svh - 1.5rem)",
+          borderRadius:
+            "24px",
+          borderBottom:
+            "1px solid rgba(171, 143, 91, 0.22)",
+          padding:
+            "clamp(2.5rem, 5vw, 3.4rem) clamp(1rem, 5vw, 3.5rem) clamp(1.6rem, 4vw, 3.2rem)",
+        }}
       >
         <button
           type="button"

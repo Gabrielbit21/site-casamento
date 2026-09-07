@@ -1,5 +1,7 @@
 import WeddingCountdown from "@/components/WeddingCountdown";
 
+import styles from "./WeddingDetails.module.css";
+
 /* ========================================
    CERIMÔNIA
 ======================================== */
@@ -129,11 +131,6 @@ export default function WeddingDetails() {
         </div>
 
         <div className="wedding-main-grid">
-
-          {/* =================================
-              CERIMÔNIA
-          ================================== */}
-
           <article className="wedding-card wedding-map-card">
             <div className="wedding-card-head">
               <p className="wedding-card-label">
@@ -159,7 +156,7 @@ export default function WeddingDetails() {
               href={ceremonyDirectionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="wedding-route-button"
+              className={`wedding-route-button ${styles.routeAccent}`}
             >
               <span className="route-icon">
                 ↗
@@ -168,10 +165,6 @@ export default function WeddingDetails() {
               Criar rota
             </a>
           </article>
-
-          {/* =================================
-              RECEPÇÃO
-          ================================== */}
 
           <article className="wedding-card wedding-map-card">
             <div className="wedding-card-head">
@@ -209,7 +202,7 @@ export default function WeddingDetails() {
               href={receptionDirectionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="wedding-route-button"
+              className={`wedding-route-button ${styles.routeAccent}`}
             >
               <span className="route-icon">
                 ↗

@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+import EarthOrnaments from "@/components/EarthOrnaments";
+
 const photos = [
   {
     src: "/images/testes/foto1.jpeg",
@@ -131,27 +133,43 @@ export default function Gallery() {
 
   return (
     <>
-      <section className="gallery-section">
-        <div className="gallery-heading">
-          <p className="section-label">
-            NOSSOS MOMENTOS
-          </p>
+      <section
+        className="gallery-section"
+        style={{
+          paddingBottom:
+            "clamp(3.5rem, 5vw, 5rem)",
+        }}
+      >
+        <EarthOrnaments
+          variant="gallery"
+        />
 
-          <h2>
-            Memórias que
-            <br />
-            trouxeram a gente até aqui.
-          </h2>
+        <div
+          style={{
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          <div className="gallery-heading">
+            <p className="section-label">
+              NOSSAS FOTOS
+            </p>
 
-          <p>
-            Entre encontros, viagens, risadas e
-            pequenos instantes, fomos escrevendo
-            uma história que agora nos conduz ao
-            nosso grande dia.
-          </p>
-        </div>
+            <h2>
+              Memórias que
+              <br />
+              trouxeram a gente até aqui.
+            </h2>
 
-        <div className="gallery-grid">
+            <p>
+              Entre encontros, viagens, risadas e
+              pequenos instantes, fomos escrevendo
+              uma história que agora nos conduz ao
+              nosso grande dia.
+            </p>
+          </div>
+
+          <div className="gallery-grid">
           {visiblePhotos.map(
             (photo, index) => (
               <button
@@ -183,25 +201,26 @@ export default function Gallery() {
               </button>
             )
           )}
-        </div>
-
-        {hasMorePhotos && (
-          <div className="gallery-more-wrapper">
-            <button
-              type="button"
-              className="gallery-more"
-              onClick={() =>
-                setShowAll(
-                  (current) => !current
-                )
-              }
-            >
-              {showAll
-                ? "Ver menos"
-                : "Ver mais"}
-            </button>
           </div>
-        )}
+
+          {hasMorePhotos && (
+            <div className="gallery-more-wrapper">
+              <button
+                type="button"
+                className="gallery-more"
+                onClick={() =>
+                  setShowAll(
+                    (current) => !current
+                  )
+                }
+              >
+                {showAll
+                  ? "Ver menos"
+                  : "Ver mais"}
+              </button>
+            </div>
+          )}
+        </div>
       </section>
 
       {currentPhoto && (

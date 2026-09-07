@@ -15,59 +15,10 @@
   overflow: hidden;
 
   background:
-    var(--olive-dark);
-
-  color:
     var(--cream-light);
 }
 
-.section::before,
-.section::after {
-  content: "";
-
-  position: absolute;
-
-  border-radius: 50%;
-
-  pointer-events: none;
-}
-
-.section::before {
-  width: 500px;
-  height: 500px;
-
-  top: -290px;
-  right: -210px;
-
-  border:
-    1px solid
-    rgba(
-      246,
-      244,
-      238,
-      0.09
-    );
-}
-
-.section::after {
-  width: 380px;
-  height: 380px;
-
-  left: -220px;
-  bottom: -170px;
-
-  background:
-    rgba(
-      246,
-      244,
-      238,
-      0.025
-    );
-}
-
-.heading,
-.grid,
-.moreWrapper {
+.contentLayer {
   position: relative;
   z-index: 1;
 }
@@ -88,7 +39,8 @@
     auto
     4.5rem;
 
-  text-align: center;
+  text-align:
+    center;
 }
 
 .label {
@@ -96,7 +48,8 @@
     var(--font-manrope),
     sans-serif;
 
-  font-size: 0.6rem;
+  font-size:
+    0.6rem;
 
   font-weight: 600;
 
@@ -107,16 +60,12 @@
     uppercase;
 
   color:
-    rgba(
-      246,
-      244,
-      238,
-      0.6
-    );
+    var(--olive);
 }
 
 .title {
-  margin-top: 1.8rem;
+  margin-top:
+    1.8rem;
 
   font-family:
     var(--font-cormorant),
@@ -129,15 +78,17 @@
       5.8rem
     );
 
-  font-weight: 400;
+  font-weight:
+    400;
 
-  line-height: 0.92;
+  line-height:
+    0.92;
 
   letter-spacing:
     -0.04em;
 
   color:
-    var(--cream-light);
+    var(--olive-dark);
 }
 
 .description {
@@ -156,39 +107,39 @@
     var(--font-cormorant),
     serif;
 
-  font-size: 1.28rem;
+  font-size:
+    1.28rem;
 
-  line-height: 1.7;
+  line-height:
+    1.7;
 
   color:
-    rgba(
-      246,
-      244,
-      238,
-      0.76
-    );
+    var(--text-soft);
 }
 
 .pixInfo {
-  margin-top: 1rem;
+  margin-top:
+    1rem;
 
   font-family:
     var(--font-manrope),
     sans-serif;
 
-  font-size: 0.62rem;
+  font-size:
+    0.62rem;
 
-  line-height: 1.7;
+  line-height:
+    1.7;
 
   letter-spacing:
     0.09em;
 
   color:
     rgba(
-      246,
-      244,
-      238,
-      0.52
+      109,
+      112,
+      103,
+      0.72
     );
 }
 
@@ -203,7 +154,8 @@
       940px
     );
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 
   display: grid;
 
@@ -216,7 +168,8 @@
       )
     );
 
-  gap: 1.1rem;
+  gap:
+    1.1rem;
 }
 
 /* ========================================
@@ -231,27 +184,27 @@
   border:
     1px solid
     rgba(
-      255,
-      255,
-      255,
+      109,
+      118,
+      83,
       0.1
     );
 
-  border-radius: 22px;
+  border-radius:
+    22px;
 
   background:
-    var(--cream-light);
-
-  color:
-    var(--olive-dark);
+    #ffffff;
 
   box-shadow:
-    0 18px 42px
+    0
+    14px
+    34px
     rgba(
-      25,
-      29,
-      23,
-      0.16
+      48,
+      54,
+      44,
+      0.055
     );
 
   transition:
@@ -269,23 +222,26 @@
 }
 
 .card:not(
-    .cardUnavailable
-  ):hover {
+  .cardUnavailable
+):hover {
   transform:
     translateY(-5px);
 
   box-shadow:
-    0 26px 58px
+    0
+    22px
+    50px
     rgba(
-      25,
-      29,
-      23,
-      0.24
+      48,
+      54,
+      44,
+      0.1
     );
 }
 
 .cardUnavailable {
-  opacity: 0.72;
+  opacity:
+    0.72;
 }
 
 /* ========================================
@@ -307,7 +263,8 @@
 }
 
 .image {
-  object-fit: cover;
+  object-fit:
+    cover;
 
   transition:
     transform
@@ -321,9 +278,9 @@
 }
 
 .card:not(
-    .cardUnavailable
-  ):hover
-  .image {
+  .cardUnavailable
+):hover
+.image {
   transform:
     scale(1.035);
 }
@@ -351,15 +308,15 @@
   background:
     radial-gradient(
       circle
-        at
-        50%
-        35%,
+      at
+      50%
+      35%,
       #fbfaf7
-        0%,
+      0%,
       #f3f1eb
-        60%,
+      60%,
       #ece9e1
-        100%
+      100%
     );
 }
 
@@ -375,9 +332,11 @@
       5.5rem
     );
 
-  font-weight: 400;
+  font-weight:
+    400;
 
-  line-height: 0.9;
+  line-height:
+    0.9;
 
   letter-spacing:
     -0.07em;
@@ -392,15 +351,18 @@
 }
 
 .placeholderCategory {
-  margin-top: 1rem;
+  margin-top:
+    1rem;
 
   font-family:
     var(--font-manrope),
     sans-serif;
 
-  font-size: 0.5rem;
+  font-size:
+    0.5rem;
 
-  font-weight: 600;
+  font-weight:
+    600;
 
   letter-spacing:
     0.34em;
@@ -478,9 +440,11 @@
     var(--font-manrope),
     sans-serif;
 
-  font-size: 0.48rem;
+  font-size:
+    0.48rem;
 
-  font-weight: 700;
+  font-weight:
+    700;
 
   letter-spacing:
     0.25em;
@@ -493,7 +457,7 @@
 }
 
 /* ========================================
-   CONTEÚDO DO CARD
+   CONTEÚDO
 ======================================== */
 
 .cardContent {
@@ -508,9 +472,11 @@
     var(--font-manrope),
     sans-serif;
 
-  font-size: 0.5rem;
+  font-size:
+    0.5rem;
 
-  font-weight: 600;
+  font-weight:
+    600;
 
   letter-spacing:
     0.3em;
@@ -523,17 +489,21 @@
 }
 
 .giftName {
-  margin-top: 0.55rem;
+  margin-top:
+    0.55rem;
 
   font-family:
     var(--font-cormorant),
     serif;
 
-  font-size: 1.8rem;
+  font-size:
+    1.8rem;
 
-  font-weight: 400;
+  font-weight:
+    400;
 
-  line-height: 1;
+  line-height:
+    1;
 
   letter-spacing:
     -0.025em;
@@ -543,7 +513,8 @@
 }
 
 .cardFooter {
-  margin-top: 1.25rem;
+  margin-top:
+    1.25rem;
 
   display: flex;
 
@@ -567,9 +538,11 @@
     var(--font-manrope),
     sans-serif;
 
-  font-size: 0.47rem;
+  font-size:
+    0.47rem;
 
-  font-weight: 500;
+  font-weight:
+    500;
 
   letter-spacing:
     0.22em;
@@ -589,15 +562,18 @@
 .price {
   display: block;
 
-  margin-top: 0.2rem;
+  margin-top:
+    0.2rem;
 
   font-family:
     var(--font-bodoni),
     serif;
 
-  font-size: 1.22rem;
+  font-size:
+    1.22rem;
 
-  font-weight: 500;
+  font-weight:
+    500;
 
   white-space:
     nowrap;
@@ -611,9 +587,11 @@
 ======================================== */
 
 .giftButton {
-  min-width: 106px;
+  min-width:
+    106px;
 
-  min-height: 42px;
+  min-height:
+    42px;
 
   padding:
     0.7rem
@@ -627,17 +605,20 @@
     999px;
 
   background:
-    var(--olive-dark);
+    #a87e61;
 
-  color: #ffffff;
+  color:
+    #ffffff;
 
   font-family:
     var(--font-manrope),
     sans-serif;
 
-  font-size: 0.47rem;
+  font-size:
+    0.47rem;
 
-  font-weight: 700;
+  font-weight:
+    700;
 
   letter-spacing:
     0.2em;
@@ -647,23 +628,48 @@
 
   cursor: pointer;
 
+  box-shadow:
+    0
+    9px
+    22px
+    rgba(
+      143,
+      104,
+      77,
+      0.16
+    );
+
   transition:
     transform
       0.3s
       ease,
     background
       0.3s
+      ease,
+    box-shadow
+      0.3s
       ease;
 }
 
 .giftButton:not(
-    :disabled
-  ):hover {
+  :disabled
+):hover {
   transform:
     translateY(-2px);
 
   background:
-    var(--olive);
+    #8f684d;
+
+  box-shadow:
+    0
+    13px
+    28px
+    rgba(
+      143,
+      104,
+      77,
+      0.23
+    );
 }
 
 .giftButtonUnavailable {
@@ -677,6 +683,9 @@
       103,
       0.65
     );
+
+  box-shadow:
+    none;
 
   cursor:
     not-allowed;
@@ -697,7 +706,8 @@
 }
 
 .moreButton {
-  min-height: 52px;
+  min-height:
+    52px;
 
   padding:
     0.85rem
@@ -706,10 +716,10 @@
   border:
     1px solid
     rgba(
-      246,
-      244,
-      238,
-      0.32
+      168,
+      126,
+      97,
+      0.7
     );
 
   border-radius:
@@ -719,15 +729,17 @@
     transparent;
 
   color:
-    var(--cream-light);
+    #966c50;
 
   font-family:
     var(--font-manrope),
     sans-serif;
 
-  font-size: 0.52rem;
+  font-size:
+    0.52rem;
 
-  font-weight: 600;
+  font-weight:
+    700;
 
   letter-spacing:
     0.26em;
@@ -743,15 +755,21 @@
       ease,
     color
       0.3s
+      ease,
+    transform
+      0.3s
       ease;
 }
 
 .moreButton:hover {
+  transform:
+    translateY(-2px);
+
   background:
-    var(--cream-light);
+    #a87e61;
 
   color:
-    var(--olive-dark);
+    #ffffff;
 }
 
 /* ========================================
@@ -773,7 +791,8 @@
   justify-content:
     center;
 
-  padding: 1.25rem;
+  padding:
+    1.25rem;
 
   background:
     rgba(
@@ -797,7 +816,8 @@
       520px
     );
 
-  padding: 2rem;
+  padding:
+    2rem;
 
   border-radius:
     30px;
@@ -805,11 +825,10 @@
   background:
     var(--cream-light);
 
-  color:
-    var(--olive-dark);
-
   box-shadow:
-    0 30px 100px
+    0
+    30px
+    100px
     rgba(
       0,
       0,
@@ -827,7 +846,8 @@
   justify-content:
     space-between;
 
-  gap: 1.5rem;
+  gap:
+    1.5rem;
 }
 
 .modalLabel {
@@ -835,9 +855,11 @@
     var(--font-manrope),
     sans-serif;
 
-  font-size: 0.5rem;
+  font-size:
+    0.5rem;
 
-  font-weight: 600;
+  font-weight:
+    600;
 
   letter-spacing:
     0.3em;
@@ -850,17 +872,21 @@
 }
 
 .modalTitle {
-  margin-top: 0.6rem;
+  margin-top:
+    0.6rem;
 
   font-family:
     var(--font-cormorant),
     serif;
 
-  font-size: 2.7rem;
+  font-size:
+    2.7rem;
 
-  font-weight: 400;
+  font-weight:
+    400;
 
-  line-height: 0.95;
+  line-height:
+    0.95;
 
   letter-spacing:
     -0.035em;
@@ -871,7 +897,6 @@
 
 .modalClose {
   width: 44px;
-
   height: 44px;
 
   flex-shrink: 0;
@@ -893,7 +918,8 @@
       0.15
     );
 
-  border-radius: 50%;
+  border-radius:
+    50%;
 
   background:
     transparent;
@@ -905,9 +931,11 @@
     var(--font-cormorant),
     serif;
 
-  font-size: 1.8rem;
+  font-size:
+    1.8rem;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transition:
     background
@@ -920,9 +948,10 @@
 
 .modalClose:hover {
   background:
-    var(--olive-dark);
+    #a87e61;
 
-  color: #ffffff;
+  color:
+    #ffffff;
 }
 
 .modalDivider {
@@ -952,7 +981,8 @@
 
   gap: 1rem;
 
-  padding: 1.2rem;
+  padding:
+    1.2rem;
 
   border-radius:
     20px;
@@ -966,9 +996,11 @@
     var(--font-manrope),
     sans-serif;
 
-  font-size: 0.53rem;
+  font-size:
+    0.53rem;
 
-  font-weight: 500;
+  font-weight:
+    500;
 
   letter-spacing:
     0.2em;
@@ -985,9 +1017,11 @@
     var(--font-bodoni),
     serif;
 
-  font-size: 1.6rem;
+  font-size:
+    1.6rem;
 
-  font-weight: 500;
+  font-weight:
+    500;
 
   color:
     var(--olive-dark);
@@ -1001,9 +1035,11 @@
     var(--font-cormorant),
     serif;
 
-  font-size: 1.15rem;
+  font-size:
+    1.15rem;
 
-  line-height: 1.65;
+  line-height:
+    1.65;
 
   color:
     var(--text-soft);
@@ -1012,7 +1048,8 @@
 .modalButton {
   width: 100%;
 
-  min-height: 54px;
+  min-height:
+    54px;
 
   margin-top:
     1.7rem;
@@ -1027,17 +1064,20 @@
     999px;
 
   background:
-    var(--olive-dark);
+    #a87e61;
 
-  color: #ffffff;
+  color:
+    #ffffff;
 
   font-family:
     var(--font-manrope),
     sans-serif;
 
-  font-size: 0.5rem;
+  font-size:
+    0.5rem;
 
-  font-weight: 700;
+  font-weight:
+    700;
 
   letter-spacing:
     0.27em;
@@ -1045,10 +1085,14 @@
   text-transform:
     uppercase;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transition:
     transform
+      0.3s
+      ease,
+    background
       0.3s
       ease;
 }
@@ -1056,6 +1100,9 @@
 .modalButton:hover {
   transform:
     translateY(-2px);
+
+  background:
+    #8f684d;
 }
 
 /* ========================================
@@ -1102,22 +1149,6 @@
       7rem;
   }
 
-  .section::before {
-    width: 300px;
-    height: 300px;
-
-    top: -190px;
-    right: -150px;
-  }
-
-  .section::after {
-    width: 260px;
-    height: 260px;
-
-    left: -150px;
-    bottom: -120px;
-  }
-
   .heading {
     margin-bottom:
       3.5rem;
@@ -1147,7 +1178,8 @@
     grid-template-columns:
       1fr;
 
-    gap: 1rem;
+    gap:
+      1rem;
   }
 
   .cardContent {
